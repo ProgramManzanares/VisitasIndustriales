@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #6cace4;
+    color: white;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 35px;
+}
+
+.button-header {
+    background-color: #87CEEB;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para darle profundidad */
+    transition: background-color 0.3s ease; /* Animación suave en hover */ 
+}
+
+.header button:hover {
+    background-color: #6CA6CD; /* Azul un poco más oscuro al pasar el mouse */
+}
+
+.container-table {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.container-table th, .container-table td {
+    border: 1px solid #ccc; /* Borde de color gris claro */
+    padding: 10px; /* Espaciado dentro de las celdas */
+    text-align: left; /* Alineación del texto */
+}
+
+.encabezado th{
+    background-color: #6CACE4; /* Fondo azul para el encabezado */
+    color: white; /* Texto blanco */
+    font-weight: bold; /* Texto en negritas */
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo gris claro para filas pares */
+}
+
+.table tbody tr:hover {
+    background-color: #e0f7ff; /* Fondo azul claro al pasar el ratón */
+    cursor: pointer; /* Cambia el cursor a una mano */
+}
+
+.encabezado {
+    background-color: #6CACE4;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    text-align: left;
+    display: flex; /* Activar flexbox */
+    align-items: center; /* Alinear verticalmente */
+    justify-content: space-between; /* Separar los elementos horizontalmente */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    width: 200px;
+    padding: 5px;
+    border: none;
+    outline: none;
+}
+
+.search-bar button {
+    background-color: #0056B3;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.container-datos {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto; /* Barra de desplazamiento vertical */
+    width: 80%;
+    margin: 20px auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombras para dar efecto */
+}
+
+.card button {
+    background-color: #6cace4;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.card button:hover {
+    background-color: #87CEEB;
+}
+
+h2 {
+    margin: 0.5rem 0;
+    color: #323232;
+}
+
+p {
+    margin: 0.5rem 0;
+    color: #323232;
+}
