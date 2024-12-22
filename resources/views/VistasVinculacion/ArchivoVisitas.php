@@ -19,42 +19,148 @@
             <!--&lt Evidencias de Visitas-->
         </button>
     </header>
-
-    <div class="container">
-        <table class="table">
-            <thead class="encabezado">
-                <tr>
-                    <th>FECHA</th>
-                    <th>EMPRESA</th>
-                    <th>UBICACIÓN</th>
-                    <th>PARTICIPANTES</th>
-                    <th>DETALLES</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>12/12/2024</td>
-                    <td>Empresa XYZ</td>
-                    <td>Monterrey, NL</td>
-                    <td>35</td>
-                    <td><a href="#">Ver más</a></td>
-                </tr>
-                <tr>
-                    <td>15/12/2024</td>
-                    <td>Empresa ABC</td>
-                    <td>Guadalajara, JAL</td>
-                    <td>40</td>
-                    <td><a href="#">Ver más</a></td>
-                </tr>
-                <tr>
-                    <td>20/12/2024</td>
-                    <td>Empresa DEF</td>
-                    <td>Ciudad de México</td>
-                    <td>50</td>
-                    <td><a href="#">Ver más</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <main class="main-container">
+        <div class="container">
+            <table class="table">
+                <thead class="encabezado">
+                    <tr>
+                        <th>FECHA</th>
+                        <th>EMPRESA</th>
+                        <th>UBICACIÓN</th>
+                        <th>PARTICIPANTES</th>
+                        <th>DETALLES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12/12/2024</td>
+                        <td>Empresa XYZ</td>
+                        <td>Monterrey, NL</td>
+                        <td>35</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>15/12/2024</td>
+                        <td>Empresa ABC</td>
+                        <td>Guadalajara, JAL</td>
+                        <td>40</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>20/12/2024</td>
+                        <td>Empresa DEF</td>
+                        <td>Ciudad de México</td>
+                        <td>50</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>12/12/2024</td>
+                        <td>Empresa XYZ</td>
+                        <td>Monterrey, NL</td>
+                        <td>35</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>15/12/2024</td>
+                        <td>Empresa ABC</td>
+                        <td>Guadalajara, JAL</td>
+                        <td>40</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>20/12/2024</td>
+                        <td>Empresa DEF</td>
+                        <td>Ciudad de México</td>
+                        <td>50</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>12/12/2024</td>
+                        <td>Empresa XYZ</td>
+                        <td>Monterrey, NL</td>
+                        <td>35</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>15/12/2024</td>
+                        <td>Empresa ABC</td>
+                        <td>Guadalajara, JAL</td>
+                        <td>40</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>20/12/2024</td>
+                        <td>Empresa DEF</td>
+                        <td>Ciudad de México</td>
+                        <td>50</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>12/12/2024</td>
+                        <td>Empresa XYZ</td>
+                        <td>Monterrey, NL</td>
+                        <td>35</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>15/12/2024</td>
+                        <td>Empresa ABC</td>
+                        <td>Guadalajara, JAL</td>
+                        <td>40</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>20/12/2024</td>
+                        <td>Empresa DEF</td>
+                        <td>Ciudad de México</td>
+                        <td>50</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>12/12/2024</td>
+                        <td>Empresa XYZ</td>
+                        <td>Monterrey, NL</td>
+                        <td>35</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>15/12/2024</td>
+                        <td>Empresa ABC</td>
+                        <td>Guadalajara, JAL</td>
+                        <td>40</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>20/12/2024</td>
+                        <td>Empresa DEF</td>
+                        <td>Ciudad de México</td>
+                        <td>50</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>12/12/2024</td>
+                        <td>Empresa XYZ</td>
+                        <td>Monterrey, NL</td>
+                        <td>35</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>15/12/2024</td>
+                        <td>Empresa ABC</td>
+                        <td>Guadalajara, JAL</td>
+                        <td>40</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                    <tr>
+                        <td>20/12/2024</td>
+                        <td>Empresa DEF</td>
+                        <td>Ciudad de México</td>
+                        <td>50</td>
+                        <td><a href="#">Ver más</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 </body>
 </html>
