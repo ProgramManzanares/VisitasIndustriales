@@ -7,7 +7,7 @@
 
     <form class="row g-2">
         
-        <div class="col-md-5 ms-5 mt-5">
+        <div class="col-md-3 ms-5 mt-5">
           <label for="validationServer01" class="form-label">Numero de Oficio</label>
           <input type="text" class="form-control" id="validationServer01" placeholder="Escriba Numero de Oficio"  maxlength="10" required>
         </div>
@@ -21,7 +21,7 @@
         
         </div>
         
-        <div class="col-md-5 ms-5 mt-4">
+        <div class="col-md-3 ms-5 mt-4">
           <label for="validationServerUsername" class="form-label">Cargo</label>
           <div class="input-group has-validation">
             <input type="text" class="form-control" id="validationServerUsername" aria-describedby="" placeholder="Seleccione un cargo" required>
@@ -39,7 +39,7 @@
           </div>
         </div>
        
-        <div class="col-md-5 ms-5 mt-4">
+        <div class="col-md-3 ms-5 mt-4">
           <label for="validationServer04" class="form-label">Carrera(s)</label>
           <select class="form-select" id="validationServer04" required>
             <option selected disabled value=""><Choose class=""></Choose></option>
