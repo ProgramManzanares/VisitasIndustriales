@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+.header {
+    background-color: #6cace4;
+    color: white;
+    padding: 20px;
+    text-align: left;
+}
+
+.button-header {
+    background-color: #87CEEB;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para darle profundidad */
+    transition: background-color 0.3s ease; /* Animación suave en hover */ 
+}
+
+#button-header {
+    color: white;
+}
+
+button:hover {
+    background-color: #6CA6CD; /* Azul un poco más oscuro al pasar el mouse */
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+.header-tittle {
+    background-color: #6cace4;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.company {
+    flex: 1;
+    min-width: 250px;
+    margin-right: 20px;
+    max-height: 500px;
+}
+
+.company-list {
+    flex: 1;
+    min-width: 250px;
+    margin-right: 20px;
+    max-height: 300px;
+    overflow-y: auto; /* Barra de desplazamiento vertical */
+}
+
+.company-list::-webkit-scrollbar {
+width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+.company-list::-webkit-scrollbar-thumb {
+background-color: #6cace4; /* Color del deslizador */
+border-radius: 5px; /* Bordes redondeados */
+}
+
+.company-list::-webkit-scrollbar-track {
+background-color: #f1f1f1; /* Color de la pista (fondo) */
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: none;
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+.company-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.company-list ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.company-details {
+    flex: 2;
+    min-width: 300px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.company-details h2 {
+    margin-top: 0;
+}
+
+.company-details button {
+    padding: 10px 15px;
+    background-color: #66b3ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.company-details button:hover {
+    background-color: #569ce3;
+}
+
+.company-list li:hover {
+    background-color: #87CEEB; /* Azul un poco más oscuro al pasar el mouse */
+}
