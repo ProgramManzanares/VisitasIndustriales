@@ -48,6 +48,6 @@
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script src="Evidencias_Academia.js"></script>
 </body>
 </html>
