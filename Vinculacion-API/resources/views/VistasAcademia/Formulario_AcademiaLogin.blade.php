@@ -37,6 +37,8 @@
             <button type="submit">Registrar</button>
         </form>
 
+        <!-- Nueva sección para volver al inicio de sesión -->
+        <p>¿Ya tienes una cuenta? <a href="/login">Volver al inicio de sesión</a></p>
     </div>
 </body>
 
