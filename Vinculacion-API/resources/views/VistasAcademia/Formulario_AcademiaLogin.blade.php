@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario</title>
-    <link rel="stylesheet" href="registro_academia.css">
+    <link rel="stylesheet" href="{{ asset('css/registro_academia.css') }}">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
             <input type="text" placeholder="RFC" required>
             <button type="submit">Registrar</button>
         </form>
-        <p>¿Ya tienes una cuenta? <a href="{{ route('login') }}">Inicia sesión</a></p>
+
     </div>
 </body>
 
