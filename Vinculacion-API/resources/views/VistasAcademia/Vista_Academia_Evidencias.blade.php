@@ -48,6 +48,6 @@
     </section>
   </main>
 
-  <script src="Evidencias_Academia.js"></script>
+  <script src="{{asset('js/Evidencias_Academia.js')}}"></script>
 </body>
 </html>
