@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles_Evidencias_Visitas.css">
+    <link href="{{asset('css/styles_Evidencias_Visitas.css')}}" rel="stylesheet">
     <title>Evidencias de Visitas</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
     </header>
 
     <div class="search-bar">
-        <input type="text" placeholder="Type to search...">
+        <input type="text" id="searchInput" placeholder="Type to search...">
         <button>🔍</button>
     </div>
 
@@ -81,5 +81,7 @@
     <div class="load-more">
         <button>Cargar más 🔄</button>
     </div>
+
+    <script src="{{asset('js/Evidencias_Empresas.js')}}"></script>
 </body>
 </html>
