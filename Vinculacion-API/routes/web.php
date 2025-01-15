@@ -3,5 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('PanelVinculacion');
+    return view('.VistasAcademia/FormularioAcademia');
+
+    
+    
+
+
 });
