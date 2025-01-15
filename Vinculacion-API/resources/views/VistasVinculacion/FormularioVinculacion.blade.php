@@ -55,26 +55,25 @@
     </script>
   </head>
   <body class="bg-gray-100 dark:bg-gray-900">
-    
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
       <div
-        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 "
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
-      <a
-      href="https://flowbite.com/"
-      class="flex items-center space-x-3 rtl:space-x-reverse"
-    >
-      <img
-        src="https://www.cdcuauhtemoc.tecnm.mx/wp-content/uploads/2021/08/cropped-6471adb1-bba1-4dbc-851a-5d6cc64f660a-copia.png"
-        class="h-8"
-        alt="Instituto Tecnológico Logo"
-      />
-      <span
-        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-      >
-        Visitas Industriales
-      </span>
-    </a>
+        <a
+          href="https://flowbite.com/"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <img
+            src="https://www.cdcuauhtemoc.tecnm.mx/wp-content/uploads/2021/08/cropped-6471adb1-bba1-4dbc-851a-5d6cc64f660a-copia.png"
+            class="h-8"
+            alt="Instituto Tecnológico Logo"
+          />
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+          >
+            Visitas Industriales
+          </span>
+        </a>
         <div
           class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
         >
@@ -204,7 +203,7 @@
               <a
                 href="#"
                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >Subir evidencias</a
+                >Información de empresas</a
               >
             </li>
           </ul>
@@ -214,7 +213,7 @@
 
     <!-- Formulario -->
     <form
-      class="max-w-4xl mx-auto mt-16 p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg"
+      class="max-w-4xl mx-auto mt-5 p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg"
       onsubmit="return validateForm()"
     >
       <div class="grid grid-cols-2 gap-4 mb-5">
@@ -244,6 +243,38 @@
             id="nombre-solicitante"
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Escriba su nombre"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mb-5">
+        <div>
+          <label
+            for="nombre-contacto"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Nombre del contacto</label
+          >
+          <input
+            type="text"
+            id="nombre-contacto"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Esciba el nombre del contacto"
+            required
+          />
+        </div>
+
+        <div>
+          <label
+            for="extension-telefonica"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Extensión telefonica del contacto</label
+          >
+          <input
+            type="text"
+            id="extension-telefonica"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Digite un numero telefonico"
             required
           />
         </div>
@@ -399,6 +430,23 @@
               required
             />
           </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mb-5">
+        <div>
+          <label
+            for="nombre-responsable"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Docente Responsable</label
+          >
+          <input
+            type="text"
+            id="nombre-responsable"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Esciba el nombre del docente"
+            required
+          />
         </div>
       </div>
 
