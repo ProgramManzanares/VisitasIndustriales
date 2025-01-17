@@ -55,26 +55,25 @@
     </script>
   </head>
   <body class="bg-gray-100 dark:bg-gray-900">
-    
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
       <div
-        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 "
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
-      <a
-      href="https://flowbite.com/"
-      class="flex items-center space-x-3 rtl:space-x-reverse"
-    >
-      <img
-        src="https://www.cdcuauhtemoc.tecnm.mx/wp-content/uploads/2021/08/cropped-6471adb1-bba1-4dbc-851a-5d6cc64f660a-copia.png"
-        class="h-8"
-        alt="Instituto Tecnológico Logo"
-      />
-      <span
-        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-      >
-        Visitas Industriales
-      </span>
-    </a>
+        <a
+          href="https://flowbite.com/"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <img
+            src="https://www.cdcuauhtemoc.tecnm.mx/wp-content/uploads/2021/08/cropped-6471adb1-bba1-4dbc-851a-5d6cc64f660a-copia.png"
+            class="h-8"
+            alt="Instituto Tecnológico Logo"
+          />
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+          >
+            Visitas Industriales
+          </span>
+        </a>
         <div
           class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
         >
@@ -212,6 +211,9 @@
       </div>
     </nav>
 
+    <!-- Separador -->
+    <hr class="border-gray-300 dark:border-gray-600" />
+
     <!-- Formulario -->
     <form
       class="max-w-4xl mx-auto mt-16 p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg"
@@ -229,6 +231,8 @@
             id="numero-oficio"
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Escriba número de oficio"
+            pattern="^\d+$"
+            title="Debe ingresar un número de oficio válido (solo números)"
             required
           />
         </div>
@@ -262,9 +266,8 @@
             required
           >
             <option value="" disabled selected>Seleccione un cargo</option>
-            <option value="manager">Manager</option>
-            <option value="developer">Desarrollador</option>
-            <option value="designer">Diseñador</option>
+            <option value="manager">Maestro</option>
+            <option value="developer">Jefe de Departamento</option>
           </select>
         </div>
 

@@ -169,6 +169,9 @@
       </div>
     </nav>
 
+    <!-- Separador -->
+    <hr class="border-gray-300 dark:border-gray-600" />
+
     <!-- Mensaje de Bienvenida -->
     <div class="flex justify-center bg-gray-100 dark:bg-gray-900 py-8 mt-6">
       <div class="text-center">
@@ -186,7 +189,8 @@
       class="flex justify-center bg-gray-100 dark:bg-gray-900 py-16 mt-[-40px]"
     >
       <div
-        class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 max-w-6xl w-full"
+        id="contenedor"
+        class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 max-w-6xl w-full transition-all duration-500 hover:w-[110%] hover:bg-[rgba(255,255,255,0.7)] dark:hover:bg-[rgba(224,247,250,0.1)] hover:scale-105"
       >
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           <!-- Tarjeta 1 -->
@@ -248,7 +252,7 @@
             <div class="relative z-10 flex flex-row items-center w-full">
               <!-- Contenedor del Icono -->
               <div
-              class="flex justify-center items-center bg-gray-200 w-64 h-48 rounded-lg dark:bg-gray-600"
+                class="flex justify-center items-center bg-gray-200 w-64 h-48 rounded-lg dark:bg-gray-600"
               >
                 <!-- Icono proporcionado -->
                 <svg
@@ -295,7 +299,7 @@
             <div class="relative z-10 flex flex-row items-center w-full">
               <!-- Contenedor del Icono -->
               <div
-              class="flex justify-center items-center bg-gray-200 w-64 h-48 rounded-lg dark:bg-gray-600"
+                class="flex justify-center items-center bg-gray-200 w-64 h-48 rounded-lg dark:bg-gray-600"
               >
                 <!-- Icono proporcionado -->
                 <svg
@@ -365,7 +369,6 @@
                     d="M12 5v9m-5 0H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2M8 9l4-5 4 5m1 8h.01"
                   />
                 </svg>
-                
               </div>
               <!-- Contenido -->
               <div class="flex flex-col justify-center p-4">

@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
-    <title>Visitas Industriales ITH</title>
+    <title>Formulario con Validación</title>
 
     <style>
       /* Eliminar fondo y mantener solo la línea del scrollbar */
@@ -111,6 +111,7 @@
             Visitas Industriales
           </span>
         </a>
+
         <div
           class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
         >
@@ -217,7 +218,7 @@
             <li>
               <a
                 href="#"
-                class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 aria-current="page"
                 >Solicitar visita</a
               >
@@ -225,7 +226,8 @@
             <li>
               <a
                 href="#"
-                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                aria-current="page"
                 >Archivo de visita</a
               >
             </li>
@@ -247,6 +249,9 @@
         </div>
       </div>
     </nav>
+
+    <!-- Separador -->
+    <hr class="border-gray-300 dark:border-gray-600" />
 
     <div
       class="container mx-auto p-4 flex flex-col items-center justify-start min-h-screen mt-8"
@@ -317,7 +322,7 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4">35</td>
+                <td class="px-6 py-4 text-center pl-1">35</td>
                 <td
                   class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
                 >
@@ -330,7 +335,7 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4">35</td>
+                <td class="px-6 py-4 text-center pl-1">35</td>
                 <td
                   class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
                 >
@@ -343,7 +348,7 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4">35</td>
+                <td class="px-6 py-4 text-center pl-1">35</td>
                 <td
                   class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
                 >
@@ -356,7 +361,7 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4">35</td>
+                <td class="px-6 py-4 text-center pl-1">35</td>
                 <td
                   class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
                 >
@@ -369,7 +374,7 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4">35</td>
+                <td class="px-6 py-4 text-center pl-1">35</td>
                 <td
                   class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
                 >
@@ -382,7 +387,7 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4">35</td>
+                <td class="px-6 py-4 text-center pl-1">35</td>
                 <td
                   class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
                 >
@@ -395,7 +400,7 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4">35</td>
+                <td class="px-6 py-4 text-center pl-1">35</td>
                 <td
                   class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
                 >
@@ -408,7 +413,7 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4">35</td>
+                <td class="px-6 py-4 text-center pl-1">35</td>
                 <td
                   class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
                 >
@@ -421,7 +426,7 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4">35</td>
+                <td class="px-6 py-4 text-center pl-1">35</td>
                 <td
                   class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
                 >
@@ -434,7 +439,7 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4">35</td>
+                <td class="px-6 py-4 text-center pl-1">35</td>
                 <td
                   class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
                 >
@@ -447,7 +452,7 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4">35</td>
+                <td class="px-6 py-4 text-center pl-1">35</td>
                 <td
                   class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
                 >

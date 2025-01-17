@@ -211,12 +211,15 @@
       </div>
     </nav>
 
+    <!-- Separador -->
+    <hr class="border-gray-300 dark:border-gray-600" />
+
     <!-- Formulario -->
     <form
-      class="max-w-4xl mx-auto mt-5 p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg"
+      class="max-w-4xl mx-auto mt-20 p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg"
       onsubmit="return validateForm()"
     >
-      <div class="grid grid-cols-2 gap-4 mb-5">
+      <div class="grid grid-cols-3 gap-4 mb-5">
         <div>
           <label
             for="numero-oficio"
@@ -228,6 +231,8 @@
             id="numero-oficio"
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Escriba número de oficio"
+            pattern="^\d+$"
+            title="Debe ingresar un número de oficio válido (solo números)"
             required
           />
         </div>
@@ -246,9 +251,7 @@
             required
           />
         </div>
-      </div>
 
-      <div class="grid grid-cols-2 gap-4 mb-5">
         <div>
           <label
             for="nombre-contacto"
@@ -263,24 +266,26 @@
             required
           />
         </div>
+      </div>
 
+      <div class="grid grid-cols-3 gap-4 mb-5">
         <div>
           <label
             for="extension-telefonica"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Extensión telefonica del contacto</label
+            >Extensión telefónica del contacto</label
           >
           <input
             type="text"
             id="extension-telefonica"
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Digite un numero telefonico"
+            placeholder="Digite un número telefónico"
+            pattern="^\d{10}$"
+            title="Debe ingresar un número de 10 dígitos"
             required
           />
         </div>
-      </div>
 
-      <div class="grid grid-cols-2 gap-4 mb-5">
         <div>
           <label
             for="cargo"
@@ -293,9 +298,8 @@
             required
           >
             <option value="" disabled selected>Seleccione un cargo</option>
-            <option value="manager">Manager</option>
-            <option value="developer">Desarrollador</option>
-            <option value="designer">Diseñador</option>
+            <option value="manager">Maestro</option>
+            <option value="developer">Jede de Departamento</option>
           </select>
         </div>
 
@@ -315,7 +319,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-4 mb-5">
+      <div class="grid grid-cols-3 gap-4 mb-5">
         <div>
           <label
             for="carreras"
@@ -346,9 +350,7 @@
             required
           />
         </div>
-      </div>
 
-      <div class="grid grid-cols-2 gap-4 mb-5">
         <div>
           <label
             for="area-observar"
@@ -363,7 +365,9 @@
             required
           />
         </div>
+      </div>
 
+      <div class="grid grid-cols-3 gap-4 mb-5">
         <div>
           <label
             for="objetivo"
@@ -378,9 +382,7 @@
             required
           />
         </div>
-      </div>
 
-      <div class="grid grid-cols-2 gap-4 mb-5">
         <div>
           <label
             for="turno"
@@ -433,7 +435,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-4 mb-5">
+      <div class="grid grid-cols-3 gap-4 mb-5">
         <div>
           <label
             for="nombre-responsable"
