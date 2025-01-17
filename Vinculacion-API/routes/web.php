@@ -4,6 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    return view('./VistasVinculacion/PanelVinculacion');
+    return view('./VistasVinculacion/VinculacionArchivo_Visitas');
 });
 
