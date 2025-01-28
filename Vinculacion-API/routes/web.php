@@ -3,6 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('./VistasVinculacion/FormularioVinculacion');
+    return view('./VistasVinculacion/InformacionEmpresas');
 });
 

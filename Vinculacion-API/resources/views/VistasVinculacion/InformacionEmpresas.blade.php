@@ -188,7 +188,7 @@
   <hr class="border-gray-300 dark:border-gray-600" />
 
   <!-- Contenedor principal -->
-  <div class="w-full flex flex-wrap md:flex-nowrap gap-x-6 mt-12 px-4 justify-center">
+  <div class="w-full flex flex-wrap md:flex-nowrap gap-x-6 mt-12 px-4 justify-center items-start">
     <!-- Lista con desplazamiento -->
     <div class="w-full max-w-xl bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 space-y-4 mt-12 flex-1">
       <form>
@@ -199,7 +199,7 @@
             <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
               d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
           </svg>
-          <input type="search" id="search" placeholder="Buscar empresa" autocomplete="off" style="outline: none"
+          <input type="search" id="searchInput" placeholder="Buscar empresa" autocomplete="off" style="outline: none"
             class="block w-full py-2 pl-10 pr-10 text-sm text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-blue-500 focus:border-blue-500" />
           <svg class="w-6 h-6 text-blue-700 hover:text-blue-500 absolute right-2 cursor-pointer" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -212,53 +212,133 @@
 
       <!-- Lista con desplazamiento -->
       <div class="relative overflow-y-auto max-h-[400px] border-t border-gray-200 dark:border-gray-700">
-        <ul class="divide-y divide-gray-200 dark:divide-gray-700">
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+        <ul id="empresaList" class="divide-y divide-gray-200 dark:divide-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
+              Empresa XYZ
+          </li>
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa ABC"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
+            Empresa ABC
+          </li>
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
-            Empresa XYZ
-          </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
-            Empresa XYZ
-          </li>
-          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+          <li class="px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+            data-nombre="Empresa XYZ"
+            data-direccion="La que quieras"
+            data-telefono="123456789"
+            data-email="xyz@email.com"
+            data-giro="Tecnología">
             Empresa XYZ
           </li>
           <!-- Más elementos pueden ser agregados aquí -->
@@ -267,18 +347,18 @@
     </div>
 
     <!-- Carta -->
-    <div
+    <div 
       class="w-full md:w-1/3 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 space-y-4 mt-12 flex justify-center items-center h-[500px] transition-all duration-500 hover:scale-[0.85] hover:h-[450px] overflow-hidden">
       <!-- Contenedor para el texto y el botón con efectos de hover -->
-      <div
+      <div id="empresaInfo"
         class="max-w-xs w-full bg-white dark:bg-gray-800 rounded-lg p-6 space-y-4 transition-all duration-500 hover:bg-[rgba(255,255,255,0.9)] dark:hover:bg-[rgba(224,247,250,0.2)] hover:scale-[1.4] shadow-none border-0">
-        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
+        <h2 id="empresaNombre" class="text-2xl font-semibold text-gray-900 dark:text-white">
           Empresa XYZ
         </h2>
-        <p class="text-gray-900 dark:text-white"><strong>Dirección:</strong> La que quieras</p>
-        <p class="text-gray-900 dark:text-white"><strong>Teléfono:</strong> El que sea</p>
-        <p class="text-gray-900 dark:text-white"><strong>Email:</strong> El que sea</p>
-        <p class="text-gray-900 dark:text-white"><strong>Giro:</strong> El que sea</p>
+        <p id="empresaDireccion" class="text-gray-900 dark:text-white"><strong>Dirección:</strong> La que quieras</p>
+        <p id="empresaTelefono" class="text-gray-900 dark:text-white"><strong>Teléfono:</strong> El que sea</p>
+        <p id="empresaEmail" class="text-gray-900 dark:text-white"><strong>Email:</strong> El que sea</p>
+        <p id="empresaGiro" class="text-gray-900 dark:text-white"><strong>Giro:</strong> El que sea</p>
         <button
           class="w-full py-2 px-4 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 dark:bg-blue-600 dark:hover:bg-blue-700">
           Visitar sitio web
@@ -294,6 +374,7 @@
       }
       //cale
     </script>
+
+  <script src="{{asset('js/Buscador.js')}}"></script>
 </body>
-      
 </html>
