@@ -372,6 +372,7 @@
         // Validación puede ser añadida aquí si es necesario
         return true;
       }
+      //cale
     </script>
 
   <script src="{{asset('js/Buscador.js')}}"></script>
