@@ -15,7 +15,7 @@ async function generateWordDocument() {
   const area = document.getElementById("area").value;
   const objetivo = document.getElementById("objetivo").value;
   const fechaVisita = document.getElementById("fecha-visita").value;
-  const turno = document.getElementById("turno").value;
+  const turno = document.getElementById("turno").options[document.getElementById("turno").selectedIndex].text;
   const contacto = document.getElementById("contacto").value;
   const extension = document.getElementById("extension").value;
 
