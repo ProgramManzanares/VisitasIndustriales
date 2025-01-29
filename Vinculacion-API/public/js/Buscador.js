@@ -1,4 +1,4 @@
-//Funciona para el buscador de Archivo Visitas
+//FUNCIONA PARA EL BUSCADOR DE ARCHIVO VISITAS
 // Selecciona el elemento de entrada de texto con el id 'searchInput' y agrega un evento 'input'
 document.getElementById('searchInput').addEventListener('input', function (e) {
     const query = e.target.value.toLowerCase();
@@ -12,24 +12,54 @@ document.getElementById('searchInput').addEventListener('input', function (e) {
     });
 });
 
-// Funciona para el buscador de Información Empresas
+//FUNCIONA PARA EL BUSCADOR DE EVIDENCIAS VISITAS
+// Obtener el elemento de la barra de búsqueda por su id
+document.getElementById('searchInput').addEventListener('keyup', function() {
+  // Obtener el valor de la barra de búsqueda y convertirlo a minúsculas
+  const searchQuery = this.value.toLowerCase();
+
+  // Seleccionar todas las tarjetas con la clase 'card'
+  const cards = document.querySelectorAll('.card');
+
+  // Iterar sobre cada tarjeta
+  cards.forEach(function(card) {
+      // Obtener el contenido de texto de la tarjeta y convertirlo a minúsculas
+      const cardText = card.textContent.toLowerCase();
+
+      // Comprobar si el texto de la tarjeta incluye la consulta de búsqueda
+      if (cardText.includes(searchQuery)) {
+          // Si coincide, mostrar la tarjeta
+          card.style.display = '';
+      } else {
+          // Si no coincide, ocultar la tarjeta
+          card.style.display = 'none';
+      }
+  });
+});
+
+// FUNCIONA PARA EL BUSCADOR DE INFORMACION EMPRESAS
 // Función para manejar la búsqueda
 function buscarItems() {
-    const input = document.getElementById('searchInput').value.toLowerCase(); // Obtener el texto del buscador
-    const items = document.querySelectorAll('.relative ul li'); // Seleccionar todos los elementos de la lista
+    // Obtener el texto del buscador
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    // Seleccionar todos los elementos de la lista
+    const items = document.querySelectorAll('.relative ul li');
   
     items.forEach(item => {
-      const text = item.textContent.toLowerCase(); // Obtener el texto del elemento
+      // Obtener el texto del elemento
+      const text = item.textContent.toLowerCase();
       if (text.includes(input)) {
-        item.style.display = ''; // Mostrar el elemento si coincide
+        // Mostrar el elemento si coincide
+        item.style.display = '';
       } else {
-        item.style.display = 'none'; // Ocultar el elemento si no coincide
+        // Ocultar el elemento si no coincide
+        item.style.display = 'none';
       }
     });
 }
-  
-  // Evento para activar la búsqueda mientras se escribe
-  document.getElementById('searchInput').addEventListener('input', buscarItems);
+
+// Evento para activar la búsqueda mientras se escribe
+document.getElementById('searchInput').addEventListener('input', buscarItems);
   
 // Manejo del clic en una empresa
 document.querySelectorAll("#empresaList li").forEach((item) => {

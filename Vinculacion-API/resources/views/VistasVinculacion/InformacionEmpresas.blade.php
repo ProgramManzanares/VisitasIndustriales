@@ -344,7 +344,7 @@
           <!-- Más elementos pueden ser agregados aquí -->
         </ul>
       </div>
-    </div>
+  </div>
 
     <!-- Carta -->
     <div 
