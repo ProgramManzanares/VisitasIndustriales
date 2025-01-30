@@ -41,5 +41,5 @@
         <p>¿Ya tienes una cuenta? <a>Volver al inicio de sesión</a></p>
     </div>
 </body>
-
+    <!-- Cale -->
 </html>

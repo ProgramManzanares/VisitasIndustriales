@@ -4,30 +4,42 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Maestro;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
-    {
-        $request -> validate([
-            'ClaveMestro' => 'required|string',
-            'Nombre' => 'required|string',
-        ]);
+    //Mostrando Form Login
+   public function showloginForm()
+   {
+        return view('Login');
+   }
 
-        $maestro = Maestro::where('ClaveMaestro', $request -> ClaveMaestro) -> first();
+   //Procesando el Formulario
+   public function login(Request $request)
+   {
+      //dd($request -> all());
+      //Credenciales que usaremos.
+       $credentials = $request -> validate([
+        'Nombre' => 'required|string|max:255',
+        'ClaveMaestro' => 'required|string|max:255',
+       ]);
 
-        if(!$maestro || !Hash::check($request -> ClaveMaestro, $maestro -> ClaveMaestro)){
-            return response() -> json(['error' => 'Credenciales Incorrectas'], 401);
-        }
-      
-        $token = JWTAuth::fromUser($maestro);
+       //Hace un intento para comprobar que todo este correcto.
+       if (Auth::attempt ([
+        'Nombre' => $credentials ['Nombre'], 
+        'password' => $credentials ['ClaveMaestro']])) {
 
-        return response() -> json([
-            'message' => 'Login Exitoso',
-            'token' => $token,
-            'maestro' => $maestro,
-        ]);
+            //dd('Autenticacion exitosa');
+            //Si fue exitosa, deveulve la ruta de Panel de Vinculacion.
+            if (Auth::check()) {
+
+                return redirect()->route('PanelVinculacion');
+            }
     }
+
+   //dd('Autenticacion fallida');
+   //En caso de que no, devuelve un mensaje de error.
+    return back() -> withErrors(['name' => 'El nombre o clave proporcionados son incorrectos']);
+   }
 }

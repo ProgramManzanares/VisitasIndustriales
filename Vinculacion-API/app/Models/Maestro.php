@@ -5,18 +5,13 @@ namespace App\Models;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Maestro extends Authenticatable implements JWTSubject
+class Maestro extends Authenticatable
 {
-    protected $fillable = ['ClaveMaestro', 'Nombre'];
-    protected $hidden = ['ClaveMaestro'];
+    protected $fillable = ['Nombre', 'ClaveMaestro'];
+    protected $table = 'maestros';
 
-    public function getJWTIdentifier()
+    public function getAuthPassword()
     {
-     return $this -> getKey();   
-    }
-
-    public function getJWTCustomClaims()
-    {
-        return[];
+        return $this -> ClaveMaestro;
     }
 }
