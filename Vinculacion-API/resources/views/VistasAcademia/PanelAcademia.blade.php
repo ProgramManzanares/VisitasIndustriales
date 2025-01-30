@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
-    <title>Formulario con Validación</title>
+    <title>Visitas Industriales ITH</title>
 
     <script>
       // JavaScript para manejar el modo oscuro
@@ -189,8 +189,8 @@
       class="flex justify-center bg-gray-100 dark:bg-gray-900 py-16 mt-[-40px]"
     >
       <div
-        id="contenedor" 
-        class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 max-w-6xl w-full transition-all duration-500 hover:w-[110%] hover:bg-[rgba(255,255,255,0.7)] dark:hover:bg-[rgba(224,247,250,0.1)] hover:scale-105" 
+        id="contenedor"
+        class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 max-w-6xl w-full transition-all duration-500 hover:w-[110%] hover:bg-[rgba(255,255,255,0.7)] dark:hover:bg-[rgba(224,247,250,0.1)] hover:scale-105"
       >
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           <!-- Tarjeta 1 -->
@@ -366,7 +366,7 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M6 4h12M6 4v16M6 4H5m13 0v16m0-16h1m-1 16H6m12 0h1M6 20H5M9 7h1v1H9V7Zm5 0h1v1h-1V7Zm-5 4h1v1H9v-1Zm5 0h1v1h-1v-1Zm-3 4h2a1 1 0 0 1 1 1v4h-4v-4a1 1 0 0 1 1-1Z"
+                    d="M12 5v9m-5 0H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2M8 9l4-5 4 5m1 8h.01"
                   />
                 </svg>
               </div>
@@ -375,10 +375,10 @@
                 <h5
                   class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300"
                 >
-                  Acerca de las empresas
+                  Subir evidencia de visita
                 </h5>
                 <p class="font-normal text-gray-700 dark:text-gray-400">
-                  Accede a los datos de contacto y detalles de las empresas.
+                  Sube a la plataforma fotos, documentos o videos de la visita.
                 </p>
               </div>
             </div>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -13,6 +14,16 @@
 
     
     
+=======
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+>>>>>>> parent of 98e520c (Comienzo de desarrollo backend en el login)
     <title>Visitas Industriales ITH</title>
 
     <script>
@@ -221,6 +232,7 @@
     <hr class="border-gray-300 dark:border-gray-600" />
 
     <!-- Formulario -->
+<<<<<<< HEAD
     <!-- Formulario -->
   <form id="wordForm" class="max-w-4xl mx-auto mt-20 p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg"
     onsubmit="return validateForm()">
@@ -400,5 +412,258 @@
 
     <script src="{{ asset('js/GenerarWord.js') }}" defer></script>
 
+=======
+    <form
+      class="max-w-4xl mx-auto mt-20 p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg"
+      onsubmit="return validateForm()"
+    >
+      <div class="grid grid-cols-3 gap-4 mb-5">
+        <div>
+          <label
+            for="numero-oficio"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Número de Oficio</label
+          >
+          <input
+            type="text"
+            id="numero-oficio"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escriba número de oficio"
+            pattern="^\d+$"
+            title="Debe ingresar un número de oficio válido (solo números)"
+            required
+          />
+        </div>
+
+        <div>
+          <label
+            for="nombre-solicitante"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Nombre Solicitante</label
+          >
+          <input
+            type="text"
+            id="nombre-solicitante"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escriba su nombre"
+            required
+          />
+        </div>
+
+        <div>
+          <label
+            for="nombre-contacto"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Nombre del contacto</label
+          >
+          <input
+            type="text"
+            id="nombre-contacto"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Esciba el nombre del contacto"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 mb-5">
+        <div>
+          <label
+            for="extension-telefonica"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Extensión telefónica del contacto</label
+          >
+          <input
+            type="text"
+            id="extension-telefonica"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Digite un número telefónico"
+            pattern="^\d{10}$"
+            title="Debe ingresar un número de 10 dígitos"
+            required
+          />
+        </div>
+
+        <div>
+          <label
+            for="cargo"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Cargo</label
+          >
+          <select
+            id="cargo"
+            class="[appearance:none] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            required
+          >
+            <option value="" disabled selected>Seleccione un cargo</option>
+            <option value="manager">Maestro</option>
+            <option value="developer">Jede de Departamento</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            for="empresa"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Nombre de la Empresa</label
+          >
+          <input
+            type="text"
+            id="empresa"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escriba el nombre de la empresa"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 mb-5">
+        <div>
+          <label
+            for="carreras"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Carrera(s)</label
+          >
+          <input
+            type="text"
+            id="carreras"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escriba las carreras"
+            required
+          />
+        </div>
+
+        <div>
+          <label
+            for="numero-estudiantes"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Número de Estudiantes</label
+          >
+          <input
+            type="number"
+            id="numero-estudiantes"
+            class="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Ingrese el número de estudiantes"
+            min="0"
+            required
+          />
+        </div>
+
+        <div>
+          <label
+            for="area-observar"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Área a Observar</label
+          >
+          <input
+            type="text"
+            id="area-observar"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escriba el área a observar"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 mb-5">
+        <div>
+          <label
+            for="objetivo"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Objetivo de la Visita</label
+          >
+          <input
+            type="text"
+            id="objetivo"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escriba el objetivo"
+            required
+          />
+        </div>
+
+        <div>
+          <label
+            for="turno"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Turno</label
+          >
+          <select
+            id="turno"
+            class="[appearance:none] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            required
+          >
+            <option value="" disabled selected>Seleccione un turno</option>
+            <option value="morning">Mañana</option>
+            <option value="afternoon">Tarde</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            for="fecha"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Fecha</label
+          >
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+            >
+              <svg
+                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                />
+              </svg>
+            </div>
+            <input
+              datepicker
+              id="default-datepicker"
+              type="text"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Seleccione una fecha"
+              autocomplete="off"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 mb-5">
+        <div>
+          <label
+            for="nombre-responsable"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Docente Responsable</label
+          >
+          <input
+            type="text"
+            id="nombre-responsable"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Esciba el nombre del docente"
+            required
+          />
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Enviar
+      </button>
+    </form>
+
+    <script>
+      function validateForm() {
+        // Validación puede ser añadida aquí si es necesario
+        return true;
+      }
+    </script>
+>>>>>>> parent of 98e520c (Comienzo de desarrollo backend en el login)
   </body>
 </html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <title>Iniciar Sesion</title>
 </head>
 
@@ -18,22 +18,21 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
-                <h1>ADMINISTRATIVO</h1>
-                
-                <input type="text" class="input-rfc" placeholder="RFC">
-                <input type="password" class="input-password" placeholder="Contraseña">
-
+            <form action="{{route('login.post')}}" method="POST">
+                @csrf
+                <h1>ADMINISTRATIVO</h1> 
+                <input type="text" class="input-rfc" name="Nombre" placeholder="Nombre">
+                <input type="password" class="input-password" name="ClaveMaestro" placeholder="Clave Maestro">
                 <button>Iniciar Sesión</button>
     
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form action="{{route('login.post')}}" method="POST">
+                @csrf
                 <h1>ACADEMIA</h1>
-                    
-                <input type="text" class="input-rfc" placeholder="RFC">
-                <input type="password" class="input-password" placeholder="Contraseña">
+                <input type="text" class="input-rfc" name="Nombre" placeholder="Nombre">
+                <input type="password" class="ClaveMaestro" name = 'ClaveMaestro' placeholder="Clave Maestro">
     
                 <button>Iniciar Sesión</button>
             </form>
