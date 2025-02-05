@@ -29,6 +29,7 @@
         themeToggleDarkIcon.classList.remove("hidden");
       }
 
+
       var themeToggleBtn = document.getElementById("theme-toggle");
       themeToggleBtn.addEventListener("click", function () {
         themeToggleDarkIcon.classList.toggle("hidden");
@@ -222,13 +223,13 @@
       <div class="grid grid-cols-2 gap-4 mb-5">
         <div>
           <label
-            for="numero-oficio"
+            for="nombre-solicitante"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Número de Oficio</label
+            >Nombre del Maestro Solicitante</label
           >
           <input
             type="text"
-            id="numero-oficio"
+            id="nombre-solicitante"
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Escriba número de oficio"
             pattern="^\d+$"
@@ -239,26 +240,9 @@
 
         <div>
           <label
-            for="nombre-solicitante"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Nombre Solicitante</label
-          >
-          <input
-            type="text"
-            id="nombre-solicitante"
-            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Escriba su nombre"
-            required
-          />
-        </div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-4 mb-5">
-        <div>
-          <label
             for="cargo"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Cargo</label
+            >Cargo del Maestro Solicitante</label
           >
           <select
             id="cargo"
@@ -270,12 +254,65 @@
             <option value="developer">Jefe de Departamento</option>
           </select>
         </div>
+      </div>
 
+      <div class="grid grid-cols-2 gap-4 mb-5">
+        <div>
+          <label
+            for="telefono-maestro"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Teléfono del Maestro</label
+          >
+          <input
+            type="tel"
+            id="telefono-maestro"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escriba el número de teléfono"
+            pattern="^[0-9]{10}$"
+            title="Debe ingresar un número de teléfono válido (10 dígitos)"
+            required
+          />
+        </div>
+
+        <div>
+          <label
+            for="correo-maestro"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Correo Electrónico del Maestro</label
+          >
+          <input
+            type="email"
+            id="correo-maestro"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escriba el correo electrónico"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mb-5">
         <div>
           <label
             for="empresa"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Nombre de la Empresa</label
+          >
+          <input
+            type="text"
+            id="nombre-solicitante"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escriba número de oficio"
+            pattern="^\d+$"
+            title="Debe ingresar un número de oficio válido (solo números)"
+            required
+          />
+        </div>
+
+        <div>
+          <label
+            for="modalidad"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Modalidad</label
           >
           <input
             type="text"
@@ -289,21 +326,141 @@
 
       <div class="grid grid-cols-2 gap-4 mb-5">
         <div>
-          <label
-            for="carreras"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Carrera(s)</label
-          >
-          <input
-            type="text"
-            id="carreras"
-            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Escriba las carreras"
-            required
-          />
+          <label for="carreras" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            Carrera(s)
+          </label>
+
+          <!-- Contenedor del Combo Box -->
+          <div class="relative">
+            <!-- Botón para abrir/cerrar la lista -->
+            <button id="dropdownButton" type="button" class="w-full text-left shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white flex justify-between items-center">
+              <span id="selectedOptions" class="truncate block max-w-[90%] whitespace-nowrap overflow-hidden">Seleccione una carrera</span>
+              <svg class="w-5 h-5 text-gray-500 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+
+            <!-- Lista desplegable con checkboxes -->
+            <div id="dropdownList" class="absolute w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg dark:bg-gray-700 dark:border-gray-600 hidden">
+              <div class="max-h-48 overflow-y-auto p-2">
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="aeronautica" class="checkbox carrera"> Ingeniería Aeronáutica
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="biomedica" class="checkbox carrera"> Ingeniería Biomédica
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="electrica" class="checkbox carrera"> Ingeniería Eléctrica
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="electronica" class="checkbox carrera"> Ingeniería Electrónica
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="semiconductores" class="checkbox carrera"> Ingeniería en Semiconductores
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="industrial" class="checkbox carrera"> Ingeniería Industrial
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="mecanica" class="checkbox carrera"> Ingeniería Mecánica
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="mecatronica" class="checkbox carrera"> Ingeniería Mecatrónica
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="sistemas" class="checkbox carrera"> Ingeniería en Sistemas Computacionales
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="informatica" class="checkbox carrera"> Ingeniería en Informática
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="gestion" class="checkbox carrera"> Ingeniería en Gestión Empresarial
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" value="administracion" class="checkbox carrera"> Licenciatura en Administración
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JavaScript para manejar el desplegable y mostrar opciones seleccionadas -->
+      <script>
+        document.getElementById("dropdownButton").addEventListener("click", function () {
+          document.getElementById("dropdownList").classList.toggle("hidden");
+        });
+
+        document.querySelectorAll(".carrera").forEach((checkbox) => {
+          checkbox.addEventListener("change", function () {
+            let selected = [];
+            document.querySelectorAll(".carrera:checked").forEach((cb) => {
+              selected.push(cb.parentElement.textContent.trim());
+            });
+
+            let displayText = "";
+            if (selected.length === 0) {
+              displayText = "Seleccione una carrera";
+            } else if (selected.length <= 3) {
+              displayText = selected.join(", ");
+            } else {
+              displayText = `${selected.slice(0, 2).join(", ")} y ${selected.length - 2} más`;
+            }
+
+            document.getElementById("selectedOptions").textContent = displayText;
+          });
+        });
+
+        // Cerrar el dropdown si se hace clic fuera de él
+        document.addEventListener("click", function (event) {
+          const dropdown = document.getElementById("dropdownList");
+          const button = document.getElementById("dropdownButton");
+          if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+            dropdown.classList.add("hidden");
+          }
+        });
+      </script>
+
+
+      <div class="grid grid-cols-2 gap-4 mb-5">
+          <div>
+            <label
+              for="nombre-grupo"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Grupo</label
+            >
+            <input
+              type="text"
+              id="nombre-grupo"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Escriba el nombre del grupo"
+              required
+            />
+          </div>
+          
+          <div>
+            <label
+              for="asignatura"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Asignatura</label
+            >
+            <input
+              type="text"
+              id="asignatura"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Escriba la asignatura"
+              required
+            />
+          </div>
         </div>
 
-        <div>
+
+
+
+
+
+      <div class="grid grid-cols-2 gap-4 mb-5">
+      <div>
           <label
             for="numero-estudiantes"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -318,9 +475,7 @@
             required
           />
         </div>
-      </div>
 
-      <div class="grid grid-cols-2 gap-4 mb-5">
         <div>
           <label
             for="area-observar"
@@ -336,7 +491,11 @@
           />
         </div>
 
-        <div>
+      </div>
+
+
+      <div class="grid grid-cols-2 gap-4 mb-5">
+      <div>
           <label
             for="objetivo"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -350,9 +509,7 @@
             required
           />
         </div>
-      </div>
 
-      <div class="grid grid-cols-2 gap-4 mb-5">
         <div>
           <label
             for="turno"
@@ -365,10 +522,14 @@
             required
           >
             <option value="" disabled selected>Seleccione un turno</option>
-            <option value="morning">Mañana</option>
-            <option value="afternoon">Tarde</option>
+            <option value="morning">Matutino (9:00-11:00 A.M)</option>
+            <option value="afternoon">Vespertino (2:00-4:00 P.M)</option>
           </select>
         </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mb-5">
+        
 
         <div>
           <label
@@ -403,61 +564,7 @@
             />
           </div>
         </div>
-<<<<<<< HEAD
-
-        <div>
-          <label
-            for="empresa"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Nombre de la Empresa</label
-          >
-          <input
-            type="text"
-            id="empresa"
-            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Escriba el nombre de la empresa"
-            required
-          />
-        </div>
       </div>
-
-      <div class="grid grid-cols-2 gap-4 mb-5">
-        <div>
-          <label
-            for="carreras"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Carrera(s)</label
-          >
-          <select
-            id="carreras"
-            class="[appearance:none] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required
-          >
-            <option value="" disabled selected>Seleccione una carrera</option>
-            <option value="aeronautica">Ingeniería Aeronáutica</option>
-            <option value="biomedica">Ingeniería Biomédica</option>
-            <option value="electrica">Ingeniería Eléctrica</option>
-            <option value="electronica">Ingeniería Electrónica</option>
-            <option value="semiconductores">Ingeniería en Semiconductores</option>
-            <option value="industrial">Ingeniería Industrial</option>
-            <option value="mecanica">Ingeniería Mecánica</option>
-            <option value="mecatronica">Ingeniería Mecatrónica</option>
-            <option value="sistemas">Ingeniería en Sistemas Computacionales</option>
-            <option value="informatica">Ingeniería en Informática</option>
-            <option value="gestion">Ingeniería en Gestión Empresarial</option>
-            <option value="administracion">Licenciatura en Administración</option>
-          </select>
-        </div>
-        
-        <div class="col-md-5 ms-5 mt-4">
-            <label for="validationServer05" class="form-label">Area a Observar</label>
-            <input type="text" class="form-control" id="validationServer05" aria-describedby="validationServer05Feedback" required>
-            <div id="validationServer05Feedback" class="invalid-feedback">
-            </div>
-        </div>
-=======
-      </div>
->>>>>>> parent of 98e520c (Comienzo de desarrollo backend en el login)
 
       <button
         type="submit"
@@ -473,5 +580,5 @@
         return true;
       }
     </script>
-  </body>
+  </body>
 </html>
