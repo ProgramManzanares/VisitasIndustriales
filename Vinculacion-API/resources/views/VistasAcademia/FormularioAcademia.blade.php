@@ -226,41 +226,6 @@
 
         <div>
           <label
-            for="cargo"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Cargo del Maestro Solicitante
-          </label>
-          <select
-            id="cargo"
-            class="[appearance:none] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required>
-            <option value="" disabled selected>Seleccione un cargo</option>
-            <option value="manager">Maestro</option>
-            <option value="developer">Jefe de Departamento</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-4 mb-5">
-        <div>
-          <label
-            for="telefono-maestro"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Teléfono del Maestro
-          </label>
-          <input
-            type="tel"
-            id="telefono-maestro"
-            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Escriba el número de teléfono"
-            pattern="^[0-9]{10}$"
-            title="Debe ingresar un número de teléfono válido (10 dígitos)"
-            required
-          />
-        </div>
-
-        <div>
-          <label
             for="correo-maestro"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Correo Electrónico del Maestro
@@ -277,16 +242,36 @@
 
       <div class="grid grid-cols-2 gap-4 mb-5">
         <div>
+            <label for="telefono-maestro" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Teléfono del Maestro
+            </label>
+            <input type="tel" id="telefono-maestro"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Escriba el número de teléfono" 
+              pattern="^[0-9]{10}$"
+              title="Debe ingresar un número de teléfono válido (10 dígitos)" 
+              required
+            />
+        </div>
+
+
+
+
+        
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mb-5">
+        <div>
           <label
             for="empresa"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Nombre de la Empresa
+            Nombre de la Empresa a Visitar
           </label>
           <input
             type="text"
             id="nombre-solicitante"
             class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Escriba número de oficio"
+            placeholder="Escriba el nombre de la empresa"
             pattern="^\d+$"
             title="Debe ingresar un número de oficio válido (solo números)"
             required
@@ -540,12 +525,105 @@
           </select>
         </div>
       </div>
-      
-      <button
-        type="submit"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        Enviar
-      </button>
+
+      <div class="grid grid-cols-2 gap-4 mb-5">     
+        <div class="col-span-2"> 
+          <label
+              for="notas"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Notas:
+          </label>
+          <textarea
+              id="notas"
+              rows="5"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Escriba algunas notas"
+              required
+          ></textarea>
+        </div>
+    </div>
+
+          
+      <!-- Separador -->
+      <hr class="border-gray-300 dark:border-gray-600"/>
+
+      <label
+        for="text"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-5 mb-5">
+        Nota: Si ya tiene la visita gestionada seleccione "Sí" para capturar los datos del contacto
+      </label>
+
+      <div class="mt-5 mb-5">
+        <label for="visita-gestionada" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            ¿Visita gestionada?
+        </label>
+        <div class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5 flex items-center dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+          <input type="radio" id="visita-gestionada-si" name="visita-gestionada" 
+              class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              onclick="mostrarFormulario()"
+          >
+          <label for="visita-gestionada-si" class="ml-2 text-sm font-medium text-gray-900 dark:text-white">
+              Sí
+          </label>
+          <input type="radio" id="visita-gestionada-no" name="visita-gestionada" 
+              class="ml-4 w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              onclick="ocultarFormulario()"
+          >     
+          <label for="visita-gestionada-no" class="ml-2 text-sm font-medium text-gray-900 dark:text-white">
+              No
+          </label>
+        </div>
+        <div id="formulario-gestionada" class="mt-4 hidden">
+          <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Nombre
+          </label>
+          <input type="text" id="nombre" placeholder="Nombre del contacto"
+              class="block w-full p-2.5 mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              autocomplete="off"
+          >
+          <label for="correo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Correo
+          </label>
+          <input type="email" id="correo" placeholder="Correo del contacto"
+              class="block w-full p-2.5 mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              autocomplete="off"
+          >
+          <label for="contacto" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Contacto
+          </label>
+          <input type="text" id="contacto" placeholder="Número del contacto"
+              class="block w-full p-2.5 mb-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              autocomplete="off"
+          >
+        </div>
+      </div>
+
+      <!-- Separador -->
+      <hr class="border-gray-300 dark:border-gray-600"/>
+
+      <!--DESPLEGAR VISITA GESTIONADA-->
+      <script>
+          function mostrarFormulario() {
+              document.getElementById('formulario-gestionada').classList.remove('hidden');
+          }
+
+          function ocultarFormulario() {
+              document.getElementById('formulario-gestionada').classList.add('hidden');
+          }
+      </script>
+
+          
+      <!-- Contenedor que empuja el botón hacia abajo -->
+      <div style="flex-grow: 1;"></div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <button
+          type="submit"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-6 mb-6">
+          Enviar
+        </button>
+      </di  v>
+
     </form>
 
     <script>
