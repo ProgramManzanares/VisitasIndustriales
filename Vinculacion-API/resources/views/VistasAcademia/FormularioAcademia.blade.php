@@ -329,14 +329,14 @@
               </svg>
             </button>
 
-            <!-- Lista desplegable con checkboxes -->
+            <!-- Lista desplegable con checkboxes --> 
             <div id="dropdownList" class="absolute w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg dark:bg-gray-700 dark:border-gray-600 hidden">
-              <div class="max-h-48 overflow-y-auto p-2">
-                <label class="flex items-center gap-2">
-                  <input type="checkbox" value="aeronautica" class="checkbox carrera"> Ingeniería Aeronáutica
+              <div class="max-h-48 overflow-y-auto p-2"> 
+                <label class="flex items-center gap-2"> 
+                  <input type="checkbox" value="aeronautica" class="checkbox carrera"> Ingeniería Aeronáutica 
                 </label>
                 <label class="flex items-center gap-2">
-                  <input type="checkbox" value="biomedica" class="checkbox carrera"> Ingeniería Biomédica
+                  <input type="checkbox" value="biomedica" class="checkbox carrera"> Ingeniería Biomédica 
                 </label>
                 <label class="flex items-center gap-2">
                   <input type="checkbox" value="electrica" class="checkbox carrera"> Ingeniería Eléctrica
@@ -347,7 +347,7 @@
                 <label class="flex items-center gap-2">
                   <input type="checkbox" value="semiconductores" class="checkbox carrera"> Ingeniería en Semiconductores
                 </label>
-                <label class="flex items-center gap-2">
+                <label class="flex items-center gap-2"> 
                   <input type="checkbox" value="industrial" class="checkbox carrera"> Ingeniería Industrial
                 </label>
                 <label class="flex items-center gap-2">
@@ -362,32 +362,15 @@
                 <label class="flex items-center gap-2">
                   <input type="checkbox" value="informatica" class="checkbox carrera"> Ingeniería en Informática
                 </label>
-                <label class="flex items-center gap-2">
+                <label class="flex items-center gap-2"> 
                   <input type="checkbox" value="gestion" class="checkbox carrera"> Ingeniería en Gestión Empresarial
                 </label>
-                <label class="flex items-center gap-2">
-                  <input type="checkbox" value="administracion" class="checkbox carrera"> Licenciatura en Administración
-                </label>
-              </div>
+                <label class="flex items-center gap-2"> <input type="checkbox" value="administracion" class="checkbox carrera"> Licenciatura en Administración 
+              </label>
             </div>
           </div>
         </div>
-
-        <div>
-            <label
-              for="nombre-grupo"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-              Grupo
-            </label>
-            <input
-              type="text"
-              id="nombre-grupo"
-              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Escriba el nombre del grupo"
-              required
-            />
-          </div>
-        </div>
+      </div>
 
         <!-- JavaScript para manejar el desplegable y mostrar opciones seleccionadas -->
         <script>
@@ -408,7 +391,7 @@
               } else if (selected.length <= 3) {
                 displayText = selected.join(", ");
               } else {
-                displayText = ${selected.slice(0, 2).join(", ")} y ${selected.length - 2} más;
+                displayText = `${selected.slice(0, 2).join(", ")} y ${selected.length - 2} más`;
               }
 
               document.getElementById("selectedOptions").textContent = displayText;
@@ -424,7 +407,22 @@
             }
           });
         </script>
-
+    
+        <div>
+            <label
+              for="nombre-grupo"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Grupo
+            </label>
+            <input
+              type="text"
+              id="nombre-grupo"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Escriba el nombre del grupo"
+              required
+            />
+          </div>
+        </div>
 
         <div class="grid grid-cols-2 gap-4 mb-5">
           <div>
