@@ -16,7 +16,7 @@
         <img src="{{asset('images/TECnm.png')}}" alt="" width="320" height="150">
     </div>
 
-    <div class="container">
+    <div class="container" id="container">
         <div class="form-container sign-up">
             <form action="{{route('login.post')}}" method="POST">
                 @csrf
