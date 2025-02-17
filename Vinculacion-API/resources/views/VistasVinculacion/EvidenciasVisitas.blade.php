@@ -81,6 +81,7 @@
         .load-more button:hover {
             background-color: #15397C;
         }
+        
         /* Eliminar fondo y mantener solo la línea del scrollbar */
         ::-webkit-scrollbar {
         width: 8px;

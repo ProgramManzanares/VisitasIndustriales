@@ -195,7 +195,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           <!-- Tarjeta 1 -->
           <a
-            href="#"
+            href="{{ route('formulario.academia') }}"
             class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
           >
             <!-- Efecto de rellenado -->
@@ -240,7 +240,7 @@
 
           <!-- Tarjeta 2 -->
           <a
-            href="#"
+            href="{{ route('archivo.academia') }}"
             class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
           >
             <!-- Efecto de rellenado -->
@@ -287,7 +287,7 @@
 
           <!-- Tarjeta 3 -->
           <a
-            href="#"
+            href="{{ route('evidencia.academia') }}"
             class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
           >
             <!-- Efecto de rellenado -->

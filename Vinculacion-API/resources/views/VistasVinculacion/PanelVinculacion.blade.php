@@ -195,9 +195,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           <!-- Tarjeta 1 -->
           <a
-            href="#"
-            class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
-          >
+            href="{{ route('formulario.vinculacion') }}"
+            class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700">
             <!-- Efecto de rellenado -->
             <span
               class="absolute inset-0 bg-gray-200 dark:bg-gray-600 scale-x-0 origin-left transform transition-transform duration-300 ease-in-out group-hover:scale-x-100 group-hover:duration-300 group-focus:duration-500"
@@ -206,17 +205,14 @@
             <!-- Contenido de la tarjeta -->
             <div class="relative z-10 flex flex-row items-center w-full">
               <!-- Contenedor del Icono -->
-              <div
-                class="flex justify-center items-center bg-gray-200 w-52 h-48 rounded-lg dark:bg-gray-600"
-              >
+              <div class="flex justify-center items-center bg-gray-200 w-52 h-48 rounded-lg dark:bg-gray-600">
                 <!-- Icono -->
                 <svg
                   class="w-16 h-16 text-gray-800 dark:text-gray-400"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                  viewBox="0 0 24 24">
                   <path
                     fill-rule="evenodd"
                     d="M11.906 1.994a8.002 8.002 0 0 1 8.09 8.421 7.996 7.996 0 0 1-1.297 3.957.996.996 0 0 1-.133.204l-.108.129c-.178.243-.37.477-.573.699l-5.112 6.224a1 1 0 0 1-1.545 0L5.982 15.26l-.002-.002a18.146 18.146 0 0 1-.309-.38l-.133-.163a.999.999 0 0 1-.13-.202 7.995 7.995 0 0 1 6.498-12.518ZM15 9.997a3 3 0 1 1-5.999 0 3 3 0 0 1 5.999 0Z"
@@ -240,7 +236,7 @@
 
           <!-- Tarjeta 2 -->
           <a
-            href="#"
+            href="{{ route('archivo.visita') }}"
             class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
           >
             <!-- Efecto de rellenado -->
@@ -287,7 +283,7 @@
 
           <!-- Tarjeta 3 -->
           <a
-            href="#"
+            href="{{ route('evidencia.visita') }}"
             class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
           >
             <!-- Efecto de rellenado -->
@@ -337,7 +333,7 @@
 
           <!-- Tarjeta 4 -->
           <a
-            href="#"
+            href="{{ route('informacion.empresa') }}"
             class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
           >
             <!-- Efecto de rellenado -->
