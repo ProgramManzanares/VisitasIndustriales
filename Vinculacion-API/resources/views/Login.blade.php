@@ -20,9 +20,9 @@
         <div class="form-container sign-up">
             <form action="{{route('login.post')}}" method="POST">
                 @csrf
-                <h1>ADMINISTRATIVO</h1> 
+                <h1>VINCULACION</h1> 
                 <input type="text" class="input-rfc" name="Nombre" placeholder="Nombre">
-                <input type="password" class="input-password" name="ClaveMaestro" placeholder="Clave Maestro">
+                <input type="password" class="input-password" name="numeroTarjeta" placeholder="Número de Tarjeta">
                 <button>Iniciar Sesión</button>
     
             </form>
@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <script src="{{asset('js/script.js')}}"></script>
+    <script src="{{asset('js/Login.js')}}"></script>
 </body>
 
 </html>

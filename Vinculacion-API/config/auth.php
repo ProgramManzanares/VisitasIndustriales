@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+    'jefe_departamento' => [   // Nuevo guard para los jefes de departamento
+        'driver' => 'session',
+        'provider' => 'jefesdepartamento',
+    ],    
     ],
 
     /*
@@ -62,8 +66,14 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\Maestro::class),
+            'model' => App\Models\Maestro::class,
         ],
+
+        'jefesdepartamento' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\JefeDepartamento::class,
+        ],
+        
 
         // 'users' => [
         //     'driver' => 'database',
