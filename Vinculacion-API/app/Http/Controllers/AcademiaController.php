@@ -17,4 +17,8 @@ class AcademiaController extends Controller
     public function evidencia_visita() {
         return view('./VistasAcademia/AcademiaEvidencias');
     }
+
+    public function subir_evidencia() {
+        return view('./VistasAcademia/SubirEvidencias');
+    }
 }

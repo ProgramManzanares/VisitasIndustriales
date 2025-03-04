@@ -36,3 +36,4 @@ Route::get('/InformacionEmpresas', [VinculacionController::class, 'informacion_e
 Route::get('/FormularioAcademia', [AcademiaController::class, 'solicitar_visita'])->name('formulario.academia');
 Route::get('/AcademiaArchivo', [AcademiaController::class, 'archivo_visita'])->name('archivo.academia');
 Route::get('/AcademiaEvidencias', [AcademiaController::class, 'evidencia_visita'])->name('evidencia.academia');
+Route::get('/SubirEvidencias', [AcademiaController::class, 'subir_evidencia'])->name('subir.evidencia');

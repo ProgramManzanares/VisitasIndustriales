@@ -337,7 +337,7 @@
 
           <!-- Tarjeta 4 -->
           <a
-            href="#"
+            href="{{ route('subir.evidencia') }}"
             class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
           >
             <!-- Efecto de rellenado -->
