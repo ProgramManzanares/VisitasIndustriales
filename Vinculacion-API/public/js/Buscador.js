@@ -1,87 +1,68 @@
-//FUNCIONA PARA EL BUSCADOR DE ARCHIVO VISITAS
-// Selecciona el elemento de entrada de texto con el id 'searchInput' y agrega un evento 'input'
-document.getElementById('searchInput').addEventListener('input', function (e) {
-    const query = e.target.value.toLowerCase();
-    const rows = document.querySelectorAll('tbody tr');
-    rows.forEach(row => {
-        const cells = row.querySelectorAll('td');
-        const match = Array.from(cells).some(cell =>
-            cell.textContent.toLowerCase().includes(query)
-        );
-        row.style.display = match ? '' : 'none';
-    });
-});
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("searchInput");
+  const empresaList = document.getElementById("empresaList");
 
-//FUNCIONA PARA EL BUSCADOR DE EVIDENCIAS VISITAS
-// Obtener el elemento de la barra de búsqueda por su id
-document.getElementById('searchInput').addEventListener('keyup', function() {
-  // Obtener el valor de la barra de búsqueda y convertirlo a minúsculas
-  const searchQuery = this.value.toLowerCase();
+  /**
+   * Carga las empresas desde el servidor (ruta /buscar-empresas) según el término de búsqueda.
+   * Si se envía un query vacío, se muestran todas las empresas.
+   *
+   * @param {string} query - El término de búsqueda.
+   */
+  function cargarEmpresas(query) {
+    axios
+      .get("/buscar-empresas", { params: { nombre: query } })
+      .then((response) => {
+        const empresas = response.data; // Se espera que cada objeto tenga { id, empresa, contacto_nombre, puesto }
+        // Limpiar la lista actual
+        empresaList.innerHTML = "";
 
-  // Seleccionar todas las tarjetas con la clase 'card'
-  const cards = document.querySelectorAll('.card');
+        // Itera por cada empresa y crea un <li> para mostrarla
+        empresas.forEach((empresa) => {
+          const li = document.createElement("li");
+          li.className =
+            "px-4 py-2 text-gray-900 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700";
+          li.textContent = empresa.empresa;
 
-  // Iterar sobre cada tarjeta
-  cards.forEach(function(card) {
-      // Obtener el contenido de texto de la tarjeta y convertirlo a minúsculas
-      const cardText = card.textContent.toLowerCase();
+          // Asignar atributos data para almacenar información adicional
+          // Si el campo está vacío, se usará "no definido" (más adelante, al actualizar la carta)
+          li.setAttribute("data-nombre", empresa.empresa || "no definido");
+          li.setAttribute("data-contacto", empresa.contacto_nombre || "no definido");
+          li.setAttribute("data-cargo", empresa.puesto || "no definido");
 
-      // Comprobar si el texto de la tarjeta incluye la consulta de búsqueda
-      if (cardText.includes(searchQuery)) {
-          // Si coincide, mostrar la tarjeta
-          card.style.display = '';
-      } else {
-          // Si no coincide, ocultar la tarjeta
-          card.style.display = 'none';
-      }
-  });
-});
+          // Al hacer clic, se actualiza la sección de información con los datos de la empresa
+          li.addEventListener("click", function () {
+            // Usamos || para que si alguna propiedad es falsy (por ejemplo, cadena vacía) se muestre "no definido"
+            const nombre = this.getAttribute("data-nombre") || "no definido";
+            const contacto = this.getAttribute("data-contacto") || "no definido";
+            const cargo = this.getAttribute("data-cargo") || "no definido";
 
-// FUNCIONA PARA EL BUSCADOR DE INFORMACION EMPRESAS
-// Función para manejar la búsqueda
-function buscarItems() {
-    // Obtener el texto del buscador
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    // Seleccionar todos los elementos de la lista
-    const items = document.querySelectorAll('.relative ul li');
-  
-    items.forEach(item => {
-      // Obtener el texto del elemento
-      const text = item.textContent.toLowerCase();
-      if (text.includes(input)) {
-        // Mostrar el elemento si coincide
-        item.style.display = '';
-      } else {
-        // Ocultar el elemento si no coincide
-        item.style.display = 'none';
-      }
-    });
-}
+            document.getElementById("nombreEmpresa").innerHTML =
+              "<strong>Nombre de la empresa:</strong> " + nombre;
+            document.getElementById("nombreContacto").innerHTML =
+              "<strong>Nombre del Contacto:</strong> " + contacto;
+            document.getElementById("contactoCargo").innerHTML =
+              "<strong>Cargo del Contacto:</strong> " + cargo;
+          });
 
-// Evento para activar la búsqueda mientras se escribe
-document.getElementById('searchInput').addEventListener('input', buscarItems);
-  
-// Manejo del clic en una empresa
-document.querySelectorAll("#empresaList li").forEach((item) => {
-  item.addEventListener("click", function () {
-    // Obtener los datos de los atributos personalizados
-    const nombre = this.getAttribute("data-nombre");
-    const direccion = this.getAttribute("data-direccion");
-    const telefono = this.getAttribute("data-telefono");
-    const email = this.getAttribute("data-email");
-    const giro = this.getAttribute("data-giro");
+          empresaList.appendChild(li);
+        });
 
-    // Actualizar el contenido del cuadro de detalles en "empresaInfo"
-    const empresaInfo = document.getElementById("empresaInfo");
-    empresaInfo.querySelector("#empresaNombre").textContent = nombre;
-    empresaInfo.querySelector("#empresaDireccion").textContent = `Dirección: ${direccion}`;
-    empresaInfo.querySelector("#empresaTelefono").textContent = `Teléfono: ${telefono}`;
-    empresaInfo.querySelector("#empresaEmail").textContent = `Email: ${email}`;
-    empresaInfo.querySelector("#empresaGiro").textContent = `Giro: ${giro}`;
+        // Si hay al menos una empresa en la lista, simula un clic en la primera para que se muestre por defecto.
+        if (empresaList.firstChild) {
+          empresaList.firstChild.click();
+        }
+      })
+      .catch((error) => {
+        console.error("Error al cargar empresas:", error);
+      });
+  }
 
-    // Mostrar y actualizar el botón (si es necesario)
-    const button = empresaInfo.querySelector("button");
-    button.classList.remove("hidden");
-    button.textContent = `Más detalles sobre ${nombre}`;
+  // Cargar empresas al iniciar la página (query vacío muestra todas)
+  cargarEmpresas("");
+
+  // Escuchar el evento "input" en el campo de búsqueda para actualizar la lista dinámicamente.
+  searchInput.addEventListener("input", function () {
+    const query = this.value.trim();
+    cargarEmpresas(query);
   });
 });
