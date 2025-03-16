@@ -83,14 +83,49 @@
           <p id="nombreEmpresa" class="text-gray-900 dark:text-white"><strong>Nombre de la empresa:</strong></p>
           <p id="nombreContacto" class="text-gray-900 dark:text-white"><strong>Nombre del Contacto:</strong></p>
           <p id="contactoCargo" class="text-gray-900 dark:text-white"><strong>Cargo del Contacto:</strong></p>
-          <button class="w-full py-2 px-4 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+          <button id="btnUpdate" class="w-full py-2 px-4 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
             Actualizar Datos
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Actualizar Datos -->
+     <!-- Actualizar Datos -->
+<div id="updateModal" class="fixed inset-0 flex items-center justify-center hidden bg-gray-900 bg-opacity-50">
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-xl font-bold mb-4 text-white">Actualizar Datos de la Empresa</h2>
+    <form id="updateForm">
+      <!-- Campo oculto para el id de la empresa -->
+      <input type="hidden" id="updateCompanyId" name="id">
+
+      <div class="mb-4">
+        <label class="block text-gray-700 dark:text-gray-300">Nombre de la empresa</label>
+        <input type="text" id="updateEmpresa" name="empresa" class="w-full border rounded p-2" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 dark:text-gray-300">Nombre del Contacto</label>
+        <input type="text" id="updateContacto" name="contacto_nombre" class="w-full border rounded p-2" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 dark:text-gray-300">Cargo del Contacto</label>
+        <input type="text" id="updateCargo" name="puesto" class="w-full border rounded p-2" required>
+      </div>
+
+      <!-- Botones para cancelar y guardar -->
+      <div class="flex justify-end">
+        <button type="button" id="cancelUpdate" class="mr-2 px-4 py-2 bg-gray-500 text-white rounded">
+          Cancelar
+        </button>
+        <button type="submit" class="px-4 py-2 bg-blue-700 text-white rounded">
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
      
 
     <!-- Incluye tu archivo Buscador.js -->
