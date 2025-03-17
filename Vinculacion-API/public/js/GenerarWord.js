@@ -1,22 +1,15 @@
-/**
- * Agrega un evento al formulario para generar un documento Word al enviarlo.
- */
 document.getElementById("wordForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-    generateWordDocument();
+    event.preventDefault(); // Evita el envío tradicional del formulario
+    generateWordDocument(); // Genera el Word y envía los datos a la BD
 });
 
-/**
- * Genera un documento Word a partir de una plantilla y los datos del formulario.
- * Reemplaza los placeholders en la plantilla con los valores ingresados.
- */
 async function generateWordDocument() {
     /** @type {Object.<string, string>} */
     const formData = {};
 
-    // Obtiene los valores del formulario y los almacena en formData
+    // Obtiene los valores del formulario
     document.querySelectorAll("#wordForm input, #wordForm select").forEach(input => {
-        formData[input.id] = input.tagName === "SELECT" 
+        formData[input.name] = input.tagName === "SELECT" 
             ? input.options[input.selectedIndex].text 
             : input.value.trim();
     });
@@ -72,8 +65,43 @@ async function generateWordDocument() {
 
         // Descarga el documento generado
         saveAs(newContent, `SolicitudVisita_${formData["num-oficio"]}.docx`);
+
+        // Envía los datos a la base de datos
+        await saveToDatabase(formData);
+
     } catch (error) {
         console.error("Error al procesar el documento:", error);
         alert("Hubo un problema al generar el documento. Intente de nuevo.");
+    }
+}
+
+async function saveToDatabase(formData) {
+    try {
+        const response = await fetch("/solicitudes/store", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content
+            },
+            body: JSON.stringify(formData)
+        });
+
+        // Verifica si la respuesta es JSON
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+            const text = await response.text();
+            throw new Error(`Respuesta no JSON: ${text.substring(0, 100)}...`);
+        }
+
+        const result = await response.json();
+        
+        if (!response.ok) throw new Error(result.message || "Error del servidor");
+        
+        alert("¡Datos guardados correctamente!");
+        window.location.reload();
+        
+    } catch (error) {
+        console.error("Error completo:", error);
+        alert(`Error: ${error.message}`);
     }
 }

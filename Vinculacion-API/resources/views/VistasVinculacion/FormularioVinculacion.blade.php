@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Visitas Industriales ITH</title>
-
     <!-- Librerías externas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/docx@7.1.0/build/index.min.js"></script>
@@ -12,19 +11,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
   </head>
+
 
   <body class="bg-gray-900">
     <!-- Navegación -->
     <x-navbar />
-    <!-- Formulario -->
+    <!-- Separador -->
     <hr class="border-gray-300 dark:border-gray-600" />
+
+
     <form
       id="wordForm"
+      action="{{ route('solicitudes.store') }}"
+      method="POST"
       class="max-w-4xl mx-auto mt-20 p-6 bg-gray-800 shadow-lg rounded-lg"
-      onsubmit="return validateForm()"
     >
+      @csrf
       <!-- Primera fila -->
       <div class="grid grid-cols-3 gap-4 mb-5">
         <div>
@@ -34,54 +38,37 @@
           <input
             type="text"
             id="num-oficio"
+            name="num-oficio"
+            value="{{ $numeroOficio }}"
             class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            placeholder="Escriba número de oficio"
-            pattern="^\d+$"
-            title="Debe ingresar un número de oficio válido (solo números)"
+            readonly
             required
           />
         </div>
 
-        <script>
-          // Genera el número de oficio basándose en año, mes, día, hora y minutos
-          function generarNumeroOficio() {
-            const now = new Date();
-            const year = String(now.getFullYear()).slice(-2);
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0'); // Número de 3 dígitos
-            // Concatenamos todas las partes y devolvemos el número de oficio
-            return year + month + day + random;
-          }
-
-          // Al cargar el DOM, asignamos el número generado al input
-          document.addEventListener('DOMContentLoaded', () => {
-            const oficioInput = document.getElementById('num-oficio');
-            oficioInput.value = generarNumeroOficio();
-          });
-        </script>
         <div>
-  <label for="fecha" class="block mb-2 text-sm font-medium text-white">
-    Fecha de Solicitud
-  </label>
-  <div class="relative">
-    <div class="absolute inset-y-0 start-0 flex items-center pl-3 pointer-events-none">
-      <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 1 1 0-2Z"/>
-      </svg>
-    </div>
-    <input
-      datepicker
-      datepicker-format="dd/mm/yyyy"
-      id="fecha"
-      type="text"
-      class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-      placeholder="Seleccione la fecha de Solicitud"
-      autocomplete="off"
-      required
-    />
-  </div>
-</div>
+          <label for="fecha" class="block mb-2 text-sm font-medium text-white">
+            Fecha de Solicitud
+          </label>
+          <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center pl-3 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 1 1 0-2Z"/>
+              </svg>
+            </div>
+            <input
+              datepicker
+              datepicker-format="dd/mm/yyyy"
+              id="fecha"
+              name="fecha"
+              type="text"
+              class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+              placeholder="Seleccione la fecha de Solicitud"
+              autocomplete="off"
+              required
+            />
+          </div>
+        </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -109,8 +96,9 @@
             </div>
             <input
               datepicker
-              data-datepicker-placement="top"
+              datepicker-format="dd/mm/yyyy"
               id="fecha-visita"
+              name = "fecha-visita"
               type="text"
               class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
               placeholder="Seleccione la fecha propuesta"
@@ -129,6 +117,7 @@
         <input
           type="text"
           id="nombre-empresa"
+          name="nombre-empresa"
           list="lista-empresas"
           autocomplete = "off"
           class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -144,6 +133,7 @@
         <input
           type="text"
           id="nombre-dirigido"
+          name="nombre-dirigido"
           class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           placeholder="Nombre del contacto"
           readonly
@@ -156,6 +146,7 @@
           <input
             type="text"
             id="cargo-dirigido"
+            name="cargo-dirigido"
             class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="Especifique el cargo del contacto"
             required
@@ -171,6 +162,7 @@
           <input
             type="number"
             id="num-estudiantes"
+            name="num-estudiantes"
             class="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="Ingrese el número de estudiantes"
             min="0"
@@ -183,6 +175,7 @@
           </label>
           <select
             id="carrera"
+            name="carrera"
             class="[appearance:none] shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             required
           >
@@ -208,6 +201,7 @@
           <input
             type="text"
             id="docente"
+            name="docente"
             class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="Escriba el nombre del docente"
             required
@@ -224,6 +218,7 @@
           <input
             type="text"
             id="area"
+            name="area"
             class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="Escriba el área a observar"
             required
@@ -236,6 +231,7 @@
           <input
             type="text"
             id="objetivo"
+            name="objetivo"
             class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="Escriba el objetivo"
             required
@@ -274,6 +270,7 @@
           <input
             type="text"
             id="contacto"
+            name="contacto"
             class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             value = "Lorenia Acosta Beltrán"
             readonly
@@ -286,6 +283,7 @@
           <input
             type="text"
             id="extension"
+            name="extension"
             class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             value = "6622334939"
             readonly
@@ -302,7 +300,6 @@
     </form>
 
     <script src="{{ asset('js/BuscarEmpresa.js')}}" defer"></script>
-    <script src="/js/formatearFecha.js"></script>
     <script src="{{ asset('js/GenerarWord.js') }}" defer></script>
     
   </body>

@@ -38,11 +38,10 @@
   </head>
   <body class="bg-gray-100 dark:bg-gray-900">
     
-     <!-- Navegación -->
-
+    <!-- Navegación -->
+    <x-navbar />
 
     <!-- Separador -->
-    <hr class="border-gray-300 dark:border-gray-600" />
 
     <div class="container mx-auto p-4 flex flex-col items-center justify-start min-h-screen mt-8">
       <!-- Contenedor principal -->

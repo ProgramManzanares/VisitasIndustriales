@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VinculacionController;
 use App\Http\Controllers\AcademiaController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\SolicitudController;
 
 
 
@@ -14,7 +15,8 @@ Route::get('/', function () {
 })->name('home');
 
 
-
+//Conexión formulario vinculación con la Base de datos
+Route::post('/solicitudes/store', [SolicitudController::class, 'store'])->name('solicitudes.store');
 
 
 // Rutas de Autenticación
