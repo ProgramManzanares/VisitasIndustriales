@@ -70,19 +70,19 @@
           </div>
         </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Configurar el datepicker
-    const fechaInput = document.getElementById('fecha');
-    const datepicker = new Datepicker(fechaInput, {
-      format: 'dd-mm-yyyy',        // Formato obligatorio
-      autohide: true,
-    });
-    // Asignar fecha actual USANDO LA API DEL DATEPICKER
-    const today = new Date();
-    datepicker.setDate(today); // <- Método clave ✅
-  });
-</script>
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            // Configurar el datepicker
+            const fechaInput = document.getElementById('fecha');
+            const datepicker = new Datepicker(fechaInput, {
+              format: 'dd-mm-yyyy',        // Formato obligatorio
+              autohide: true,
+            });
+            // Asignar fecha actual USANDO LA API DEL DATEPICKER
+            const today = new Date();
+            datepicker.setDate(today); // <- Método clave ✅
+          });
+        </script>
 
         <div>
           <label for="fecha-visita" class="block mb-2 text-sm font-medium text-white">

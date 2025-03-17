@@ -96,7 +96,7 @@
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
       <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-600 rounded-lg bg-gray-800 md:space-x-8 md:flex-row md:mt-0 md:border-0">
         <li>
-          <a href=""
+          <a href="{{ route('PanelVinculacion') }}"
              class="block py-2 px-3 text-white rounded hover:bg-gray-700"
              aria-current="page">
             Inicio
@@ -110,19 +110,19 @@
           </a>
         </li>
         <li>
-          <a href="#"
+          <a href="route('informacion.empresa')"
              class="block py-2 px-3 text-white rounded hover:bg-gray-700">
             Archivo de visita
           </a>
         </li>
         <li>
-          <a href="#"
+          <a href="route('informacion.empresa')"
              class="block py-2 px-3 text-white rounded hover:bg-gray-700">
             Evidencia de visita
           </a>
         </li>
         <li>
-          <a href="#"
+          <a href="route('informacion.empresa')"
              class="block py-2 px-3 text-white rounded hover:bg-gray-700">
             Información de empresas
           </a>
