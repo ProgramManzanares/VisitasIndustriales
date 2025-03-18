@@ -103,26 +103,25 @@
           </a>
         </li>
         <li>
-          <a href="#"
-             class="block py-2 px-3 text-white bg-blue-700 rounded"
-             aria-current="page">
+          <a href="{{ route('formulario.vinculacion') }}"
+            class="block py-2 px-3 text-white rounded hover:bg-gray-700">
             Solicitar visita
           </a>
         </li>
         <li>
-          <a href="route('informacion.empresa')"
+           <a href="{{ route('archivo.visita') }}"
              class="block py-2 px-3 text-white rounded hover:bg-gray-700">
             Archivo de visita
           </a>
         </li>
         <li>
-          <a href="route('informacion.empresa')"
+          <a href="{{ route('evidencia.visita') }}"
              class="block py-2 px-3 text-white rounded hover:bg-gray-700">
             Evidencia de visita
           </a>
         </li>
         <li>
-          <a href="route('informacion.empresa')"
+          <a href="{{ route('informacion.empresa') }}"
              class="block py-2 px-3 text-white rounded hover:bg-gray-700">
             Información de empresas
           </a>
