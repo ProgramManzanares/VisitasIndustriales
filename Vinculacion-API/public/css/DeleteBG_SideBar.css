@@ -1,0 +1,27 @@
+/* Este codigo es para que el sidebar no tenga fondo y se vea transparente */
+/* Se debera agregar (IMPORTANTE: ****custom-scrollbar****) en la clase que se desee que tenga la barra de desplazamiento personalizada */
+<style>
+    .custom-scrollbar {
+        scrollbar-width: thin;
+        /* Hace la barra de desplazamiento más delgada */
+        scrollbar-color: rgba(107, 114, 128, 0.5) transparent;
+        /* Color de la barra y fondo transparente */
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+        /* Anchura de la barra de desplazamiento */
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(107, 114, 128, 0.5);
+        /* Color de la barra */
+        border-radius: 3px;
+        /* Bordes redondeados */
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+        /* Fondo del track transparente */
+    }
+</style>
