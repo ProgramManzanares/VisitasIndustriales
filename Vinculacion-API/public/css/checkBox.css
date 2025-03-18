@@ -1,0 +1,60 @@
+/* ***************************************** */
+/*    Estilos para checkbox personalizados   */
+/* ***************************************** */
+
+/* IMPORTANTE */
+/* Debes asegurarte de que cada <input type="checkbox"> tenga la clase custom-checkbox y que las etiquetas estén estructuradas con la clase checkbox-container. */
+
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px; /* Espacio para un diseño más grande */
+    margin-bottom: 10px; /* Espaciado */
+    cursor: pointer;
+    font-size: 14px; /* Tamaño de fuente */
+    user-select: none;
+    color: inherit;
+}
+
+.custom-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px; /* Tamaño de checkbox */
+    width: 20px; /* Tamaño de checkbox */
+    background-color: #eee; /* Fondo inicial */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 7px; /* Ajustado para el tamaño */
+    top: 4px; /* Ajustado para el tamaño */
+    width: 5px; /* Tamaño de la marca */
+    height: 10px; /* Tamaño de la marca */
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* Estilo para checkbox marcado */
+.custom-checkbox:checked ~ .checkmark {
+    background-color: #2563EB; /* Azul más brillante */
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4); /* Sombra más pronunciada */
+}
+
+.custom-checkbox:checked ~ .checkmark:after {
+    display: block;
+}
