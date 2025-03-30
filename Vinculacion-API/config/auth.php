@@ -74,7 +74,6 @@ return [
             'model' => App\Models\JefeDepartamento::class,
         ],
         
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

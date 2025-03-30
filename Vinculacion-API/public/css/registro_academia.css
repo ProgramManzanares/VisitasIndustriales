@@ -39,7 +39,11 @@ body {
 }
 
 .register-container button {
+<<<<<<< HEAD
+    background-color: #007bff;
+=======
     background-color: #1D4ED8; /* Nuevo color aplicado */
+>>>>>>> develop
     color: white;
     border: none;
     padding: 10px 15px;
@@ -49,7 +53,11 @@ body {
 }
 
 .register-container button:hover {
+<<<<<<< HEAD
+    background-color: #0056b3;
+=======
     background-color: #1739a5; /* Un tono más oscuro para el hover */
+>>>>>>> develop
 }
 
 .register-container p {
@@ -59,7 +67,11 @@ body {
 }
 
 .register-container p a {
+<<<<<<< HEAD
+    color: #007bff;
+=======
     color: #1D4ED8; /* Nuevo color aplicado */
+>>>>>>> develop
     text-decoration: none;
 }
 
