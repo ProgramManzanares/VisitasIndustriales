@@ -38,12 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'maestros',
         ],
     'jefe_departamento' => [   // Nuevo guard para los jefes de departamento
         'driver' => 'session',
         'provider' => 'jefesdepartamento',
-    ],    
+   ],    
     ],
 
     /*
@@ -64,12 +64,13 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'maestros' => [
             'driver' => 'eloquent',
             'model' => App\Models\Maestro::class,
         ],
 
-        'jefesdepartamento' => [
+       
+       'jefesdepartamento' => [
             'driver' => 'eloquent',
             'model' => App\Models\JefeDepartamento::class,
         ],

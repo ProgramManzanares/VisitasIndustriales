@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('maestros', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre'); 
-            $table->string('ApellidoPaterno'); 
+            $table->string('Nombre')->nullable();
+            $table->string('ApellidoPaterno')->nullable(); 
             $table->string('ApellidoMaterno')->nullable(); 
-            $table->string('ClaveMaestro')->unique(); 
-            $table->string('CorreoElectronico')->unique(); 
+            $table->string('ClaveMaestro')->nullable();
+            $table->string('CorreoElectronico')->nullable();
             $table->string('Telefono')->nullable(); 
             $table->timestamps(); 
         });
