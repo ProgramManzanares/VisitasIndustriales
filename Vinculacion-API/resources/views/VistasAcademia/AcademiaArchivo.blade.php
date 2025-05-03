@@ -22,8 +22,6 @@
         {{-- Formulario Component --}}
         @include('components.Forms.FormsAcademia.formArchivoVisita')
 
-        {{-- Search Bar Component --}}
-        @include('components.search-bar.sbAcademia') 
 
         {{-- Estilos para la Side Bar --}}
         <link rel="stylesheet" href="{{ asset('css/DeleteBG_SideBar.css') }}">

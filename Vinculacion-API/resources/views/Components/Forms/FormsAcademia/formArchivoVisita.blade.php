@@ -1,9 +1,9 @@
 <div
-      class="container mx-auto p-4 flex flex-col items-center justify-start min-h-screen mt-8"
+      class="container flex flex-col items-center justify-start min-h-screen p-4 mx-auto mt-8"
     >
       <!-- Contenedor principal -->
       <div
-        class="w-full max-w-4xl bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 space-y-4"
+        class="w-full max-w-4xl p-4 space-y-4 bg-white rounded-lg shadow-lg dark:bg-gray-800"
       >
         
         {{-- Search bar (Traido como componente) --}}
@@ -17,7 +17,7 @@
             class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
           >
             <thead
-              class="bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200 uppercase"
+              class="text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-200"
             >
               <tr>
                 <th class="px-6 py-3">Fecha</th>
@@ -35,9 +35,9 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4 text-center pl-1">35</td>
+                <td class="px-6 py-4 pl-1 text-center">35</td>
                 <td
-                  class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
+                  class="px-6 py-4 text-blue-600 cursor-pointer hover:underline"
                 >
                   Ver más
                 </td>
@@ -48,9 +48,9 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4 text-center pl-1">35</td>
+                <td class="px-6 py-4 pl-1 text-center">35</td>
                 <td
-                  class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
+                  class="px-6 py-4 text-blue-600 cursor-pointer hover:underline"
                 >
                   Ver más
                 </td>
@@ -61,9 +61,9 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4 text-center pl-1">35</td>
+                <td class="px-6 py-4 pl-1 text-center">35</td>
                 <td
-                  class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
+                  class="px-6 py-4 text-blue-600 cursor-pointer hover:underline"
                 >
                   Ver más
                 </td>
@@ -74,9 +74,9 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4 text-center pl-1">35</td>
+                <td class="px-6 py-4 pl-1 text-center">35</td>
                 <td
-                  class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
+                  class="px-6 py-4 text-blue-600 cursor-pointer hover:underline"
                 >
                   Ver más
                 </td>
@@ -87,9 +87,9 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4 text-center pl-1">35</td>
+                <td class="px-6 py-4 pl-1 text-center">35</td>
                 <td
-                  class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
+                  class="px-6 py-4 text-blue-600 cursor-pointer hover:underline"
                 >
                   Ver más
                 </td>
@@ -100,9 +100,9 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4 text-center pl-1">35</td>
+                <td class="px-6 py-4 pl-1 text-center">35</td>
                 <td
-                  class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
+                  class="px-6 py-4 text-blue-600 cursor-pointer hover:underline"
                 >
                   Ver más
                 </td>
@@ -113,9 +113,9 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4 text-center pl-1">35</td>
+                <td class="px-6 py-4 pl-1 text-center">35</td>
                 <td
-                  class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
+                  class="px-6 py-4 text-blue-600 cursor-pointer hover:underline"
                 >
                   Ver más
                 </td>
@@ -126,9 +126,9 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4 text-center pl-1">35</td>
+                <td class="px-6 py-4 pl-1 text-center">35</td>
                 <td
-                  class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
+                  class="px-6 py-4 text-blue-600 cursor-pointer hover:underline"
                 >
                   Ver más
                 </td>
@@ -139,9 +139,9 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4 text-center pl-1">35</td>
+                <td class="px-6 py-4 pl-1 text-center">35</td>
                 <td
-                  class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
+                  class="px-6 py-4 text-blue-600 cursor-pointer hover:underline"
                 >
                   Ver más
                 </td>
@@ -152,9 +152,9 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4 text-center pl-1">35</td>
+                <td class="px-6 py-4 pl-1 text-center">35</td>
                 <td
-                  class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
+                  class="px-6 py-4 text-blue-600 cursor-pointer hover:underline"
                 >
                   Ver más
                 </td>
@@ -165,9 +165,9 @@
                 <td class="px-6 py-4">12/12/2024</td>
                 <td class="px-6 py-4">Empresa XYZ</td>
                 <td class="px-6 py-4">Monterrey, NL</td>
-                <td class="px-6 py-4 text-center pl-1">35</td>
+                <td class="px-6 py-4 pl-1 text-center">35</td>
                 <td
-                  class="px-6 py-4 text-blue-600 hover:underline cursor-pointer"
+                  class="px-6 py-4 text-blue-600 cursor-pointer hover:underline"
                 >
                   Ver más
                 </td>
