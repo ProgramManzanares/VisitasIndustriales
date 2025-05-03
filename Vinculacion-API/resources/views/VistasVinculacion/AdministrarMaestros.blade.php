@@ -6,20 +6,7 @@
     <title>Gestión de Usuarios</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rippleui@1.12.1/dist/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        [data-theme="light"] {
-            --color-primary: 59, 130, 246; /* blue-500 */
-            --color-primary-hover: 37, 99, 235; /* blue-600 */
-        }
-        .input-focus-effect:focus {
-            box-shadow: 0 0 0 2px rgba(var(--color-primary), 0.2);
-            border-color: rgba(var(--color-primary), 0.5);
-        }
-        .btn-action:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 6px -1px rgba(var(--color-primary), 0.1);
-        }
-    </style>
+    
 </head>
 <body class="flex flex-col items-center justify-start min-h-screen py-8 bg-gray-50">
 

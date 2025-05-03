@@ -20,3 +20,16 @@ table.table tr:hover {
     opacity: 1;
     visibility: visible;
 }
+
+[data-theme="light"] {
+    --color-primary: 59, 130, 246; /* blue-500 */
+    --color-primary-hover: 37, 99, 235; /* blue-600 */
+}
+.input-focus-effect:focus {
+    box-shadow: 0 0 0 2px rgba(var(--color-primary), 0.2);
+    border-color: rgba(var(--color-primary), 0.5);
+}
+.btn-action:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(var(--color-primary), 0.1);
+}
