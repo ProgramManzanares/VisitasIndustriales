@@ -4,79 +4,96 @@ document.getElementById("wordForm").addEventListener("submit", async function (e
     await generateBothWordDocuments(); // Genera ambos documentos de Word
 });
 
-async function generateBothWordDocuments() {
+// Función para convertir una fecha en formato "dd/mm/yyyy" a "dd de MMMM de yyyy"
+function formatNaturalDate(dateStr) {
+    // Se espera que dateStr tenga el formato "dd/mm/yyyy"
+    const [day, month, year] = dateStr.split('/');
+    const monthNames = [
+      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+    return `${parseInt(day, 10)} de ${monthNames[parseInt(month, 10) - 1]} de ${year}`;
+  }
+  
+  async function generateBothWordDocuments() {
     /** @type {Object.<string, string>} */
     const formData = {};
-
+  
     // Obtiene los valores del formulario
     document.querySelectorAll("#wordForm input, #wordForm select").forEach(input => {
-        formData[input.name] = input.tagName === "SELECT"
-            ? input.options[input.selectedIndex].text
-            : input.value.trim();
+      formData[input.name] = input.tagName === "SELECT"
+        ? input.options[input.selectedIndex].text
+        : input.value.trim();
     });
-
+  
     // Verifica si algún campo está vacío
     if (Object.values(formData).some(value => !value)) {
-        alert("Por favor, complete todos los campos.");
-        return;
+      alert("Por favor, complete todos los campos.");
+      return;
     }
-
+  
     try {
-        // Mapeo de _placeholders_ para la primera plantilla (Plantilla.docx)
-        const placeholdersOriginal = {
-            "{{NumOficio}}": formData["num-oficio"],
-            "{{fecha}}": formData["fecha"],
-            "{{nombreDirigido}}": formData["nombre-dirigido"],
-            "{{cargoDirigido}}": formData["cargo-dirigido"],
-            "{{empresa}}": formData["nombre-empresa"],
-            "{{numAlumnos}}": formData["num-estudiantes"],
-            "{{nombreCarrera}}": formData["carrera"],
-            "{{maestroEncargado}}": formData["docente"],
-            "{{areaObservar}}": formData["area"],
-            "{{objetivoVisita}}": formData["objetivo"],
-            "{{fechaVisita}}": formData["fecha-visita"],
-            "{{horario}}": formData["turno"],
-            "{{contacto}}": formData["contacto"],
-            "{{Extension}}": formData["extension"]
-        };
-
-        // Mapeo de _placeholders_ para la nueva plantilla 
-        // Nota: Solo se incluyen los _placeholders_ que aparecen en esta plantilla.
-        const placeholdersNew = {
-            "{{NumOficio}}": formData["num-oficio"],
-            "{{nombreDirigido}}": formData["nombre-dirigido"],
-            "{{cargoDirigido}}": formData["cargo-dirigido"],
-            "{{empresa}}": formData["nombre-empresa"],
-            "{{fecha}}": formData["fecha"],
-            "{{maestroEncargado}}": formData["docente"],
-            "{{numAlumnos}}": formData["num-estudiantes"],
-            "{{nombreCarrera}}": formData["carrera"],
-            "{{fechaVisita}}": formData["fecha-visita"],
-            "{{horario}}": formData["turno"]
-        };
-
-        // Genera el primer documento utilizando la plantilla original
-        await generateDocument(
-            "/templates/Plantilla.docx",
-            placeholdersOriginal,
-            `SolicitudVisita_${formData["num-oficio"]}.docx`
-        );
-
-        // Genera el segundo documento utilizando la nueva plantilla
-        await generateDocument(
-            "/templates/Plantilla2.docx", // Asegúrate que esta ruta sea la correcta
-            placeholdersNew,
-            `Carta de Agradecimiento_${formData["num-oficio"]}.docx`
-        );
-
-        // Guarda los datos en la base de datos
-        await saveToDatabase(formData);
-
+      // Conversión de las fechas a formato natural
+      // Por ejemplo, "12/04/2025" se convertirá a "12 de Abril de 2025"
+      formData["fechaNatural"] = formatNaturalDate(formData["fecha"]);
+      formData["fechaVisitaNatural"] = formatNaturalDate(formData["fecha-visita"]);
+  
+      // Mapeo de _placeholders_ para la primera plantilla (Plantilla.docx)
+      const placeholdersOriginal = {
+        "{{NumOficio}}": formData["num-oficio"],
+        "{{fecha}}": formData["fechaNatural"],
+        "{{nombreDirigido}}": formData["nombre-dirigido"],
+        "{{cargoDirigido}}": formData["cargo-dirigido"],
+        "{{empresa}}": formData["nombre-empresa"],
+        "{{numAlumnos}}": formData["num-estudiantes"],
+        "{{nombreCarrera}}": formData["carrera"],
+        "{{maestroEncargado}}": formData["docente"],
+        "{{areaObservar}}": formData["area"],
+        "{{objetivoVisita}}": formData["objetivo"],
+        "{{fechaVisita}}": formData["fechaVisitaNatural"],
+        "{{horario}}": formData["turno"],
+        "{{contacto}}": formData["contacto"],
+        "{{Extension}}": formData["extension"],
+        "{{periodoSemestre}}" : formData["periodo"]
+      };
+  
+      // Mapeo de _placeholders_ para la nueva plantilla (Plantilla2.docx)
+      // Nota: Solo se incluyen los _placeholders_ que aparecen en esta plantilla.
+      const placeholdersNew = {
+        "{{NumOficio}}": formData["num-oficio"],
+        "{{nombreDirigido}}": formData["nombre-dirigido"],
+        "{{cargoDirigido}}": formData["cargo-dirigido"],
+        "{{empresa}}": formData["nombre-empresa"],
+        "{{fecha}}": formData["fechaNatural"],
+        "{{maestroEncargado}}": formData["docente"],
+        "{{numAlumnos}}": formData["num-estudiantes"],
+        "{{nombreCarrera}}": formData["carrera"],
+        "{{fechaVisita}}": formData["fechaVisitaNatural"],
+        "{{horario}}": formData["turno"]
+      };
+  
+      // Genera el primer documento utilizando la plantilla original
+      await generateDocument(
+        "/templates/Plantilla.docx",
+        placeholdersOriginal,
+        `SolicitudVisita_${formData["num-oficio"]}.docx`
+      );
+  
+      // Genera el segundo documento utilizando la nueva plantilla
+      await generateDocument(
+        "/templates/Plantilla2.docx", // Asegúrate que esta ruta sea la correcta
+        placeholdersNew,
+        `Carta de Agradecimiento_${formData["num-oficio"]}.docx`
+      );
+  
+      // Guarda los datos en la base de datos
+      await saveToDatabase(formData);
+  
     } catch (error) {
-        console.error("Error al procesar los documentos:", error);
-        alert("Hubo un problema al generar los documentos. Intente de nuevo.");
+      console.error("Error al procesar los documentos:", error);
+      alert("Hubo un problema al generar los documentos. Intente de nuevo.");
     }
-}
+  }
 
 async function generateDocument(templatePath, placeholders, outputFilename) {
     // Carga la plantilla de Word

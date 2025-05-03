@@ -86,3 +86,24 @@ Route::post('/update-empresa', function (Request $request) {
         return response()->json(['success' => false, 'message' => 'No se pudo actualizar la empresa'], 500);
     }
 });
+
+
+//Agregar empresa
+Route::post('/add-empresa', function (Request $request) {
+    // Obtener los datos enviados desde el formulario
+    $data = $request->only(['empresa', 'contacto_nombre', 'puesto']);
+
+    // Validar que los datos no estén vacíos
+    if (empty($data['empresa'])) {
+        return response()->json(['success' => false, 'message' => 'El nombre de la empresa es obligatorio'], 400);
+    }
+
+    // Insertar los datos en la tabla 'empresas'
+    $inserted = DB::table('empresas')->insert($data);
+
+    if ($inserted) {
+        return response()->json(['success' => true, 'message' => 'Empresa agregada correctamente']);
+    } else {
+        return response()->json(['success' => false, 'message' => 'Error al agregar la empresa'], 500);
+    }
+});

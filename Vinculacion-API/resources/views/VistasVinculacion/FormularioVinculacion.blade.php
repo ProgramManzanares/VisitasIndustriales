@@ -262,34 +262,63 @@
         </div>
       </div>
       <!-- Quinta fila -->
-      <div class="grid grid-cols-2 gap-4 mb-5">
-        <div>
-          <label for="contacto" class="block mb-2 text-sm font-medium text-white">
-            Nombre del contacto
-          </label>
-          <input
-            type="text"
-            id="contacto"
-            name="contacto"
-            class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            value = "Lorenia Acosta Beltrán"
-            readonly
-          />
-        </div>
-        <div>
-          <label for="extension" class="block mb-2 text-sm font-medium text-white">
-            Extensión telefónica del contacto
-          </label>
-          <input
-            type="text"
-            id="extension"
-            name="extension"
-            class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            value = "6622334939"
-            readonly
-          />
-        </div>
-      </div>
+ <div class="grid grid-cols-[1fr_2fr_2fr] gap-4 mb-5">
+
+ <div>
+  <label for="periodo" class="block mb-2 text-sm font-medium text-white">
+    Periodo Semestral
+  </label>
+  <input
+    type="text"
+    id="periodo"
+    name="periodo"
+    class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+    readonly
+  />
+</div>
+
+<script>
+  // Ejecuta cuando el DOM esté completamente cargado
+  document.addEventListener("DOMContentLoaded", function () {
+    const today = new Date();
+    const year = today.getFullYear();
+    // JavaScript usa meses 0-indexados: enero es 0 y junio es 5.
+    // Por ello, si el mes es de 0 a 5 corresponde al primer semestre, de lo contrario segundo.
+    const semester = today.getMonth() <= 5 ? '1' : '2';
+    const period = year + '-' + semester;
+    document.getElementById("periodo").value = period;
+  });
+</script>
+
+  <div>
+    <label for="contacto" class="block mb-2 text-sm font-medium text-white">
+      Nombre del contacto
+    </label>
+    <input
+      type="text"
+      id="contacto"
+      name="contacto"
+      class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      value="Lorenia Acosta Beltran"
+      readonly
+    />
+  </div>
+
+  <div>
+    <label for="extension" class="block mb-2 text-sm font-medium text-white">
+      Extension telefonica del contacto
+    </label>
+    <input
+      type="text"
+      id="extension"
+      name="extension"
+      class="shadow-sm bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      value="6622334939"
+      readonly
+    />
+  </div>
+</div>
+
       <!-- Botón de envío -->
       <button
         type="submit"

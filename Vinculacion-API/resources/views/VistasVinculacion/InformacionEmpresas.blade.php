@@ -53,9 +53,13 @@
               <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
                     d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
             </svg>
-            <input type="search" id="searchInput" placeholder="Buscar empresa" autocomplete="off"
-                   style="outline: none"
-                   class="block w-full py-2 pl-10 pr-10 text-sm text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-blue-500 focus:border-blue-500" />
+            <input 
+              type="search" 
+              id="searchInput" 
+              placeholder="Buscar empresa" 
+              autocomplete="off"
+              style="outline: none"
+              class="block w-full py-2 pl-10 pr-10 text-sm text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:ring-blue-500 focus:border-blue-500" />
             <svg class="w-6 h-6 text-blue-700 hover:text-blue-500 absolute right-2 cursor-pointer" aria-hidden="true"
                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
               <path fill-rule="evenodd"
@@ -68,7 +72,7 @@
         <!-- Lista con desplazamiento para las empresas -->
         <div class="relative overflow-y-auto max-h-[400px] border-t border-gray-200 dark:border-gray-700">
           <ul id="empresaList" class="divide-y divide-gray-200 dark:divide-gray-700">
-            <!-- Los elementos de la lista se cargarán de manera dinámica vía JavaScript -->
+            <!-- Los elementos de la lista se cargarán de forma dinámica vía JavaScript -->
           </ul>
         </div>
       </div>
@@ -85,50 +89,106 @@
           <p id="contactoCargo" class="text-gray-900 dark:text-white"><strong>Cargo del Contacto:</strong></p>
           <button id="btnUpdate" class="w-full py-2 px-4 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
             Actualizar Datos
-          </button>
+          </button>  
         </div>
       </div>
     </div>
 
-     <!-- Actualizar Datos -->
-<div id="updateModal" class="fixed inset-0 flex items-center justify-center hidden bg-gray-900 bg-opacity-50">
-  <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
-    <h2 class="text-xl font-bold mb-4 text-white">Actualizar Datos de la Empresa</h2>
-    <form id="updateForm">
-      <!-- Campo oculto para el id de la empresa -->
-      <input type="hidden" id="updateCompanyId" name="id">
+    <!-- Modal para actualizar Datos -->
+    <div id="updateModal" class="fixed inset-0 flex items-center justify-center hidden bg-gray-900 bg-opacity-50">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-xl font-bold mb-4 text-white">Actualizar Datos de la Empresa</h2>
+        <form id="updateForm">
+          <!-- Campo oculto para el id de la empresa -->
+          <input type="hidden" id="updateCompanyId" name="id">
 
-      <div class="mb-4">
-        <label class="block text-gray-700 dark:text-gray-300">Nombre de la empresa</label>
-        <input type="text" id="updateEmpresa" name="empresa" class="w-full border rounded p-2" required>
+          <div class="mb-4">
+            <label class="block text-gray-700 dark:text-gray-300">Nombre de la empresa</label>
+            <input type="text" id="updateEmpresa" name="empresa" class="w-full border rounded p-2" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-700 dark:text-gray-300">Nombre del Contacto</label>
+            <input type="text" id="updateContacto" name="contacto_nombre" class="w-full border rounded p-2" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-700 dark:text-gray-300">Cargo del Contacto</label>
+            <input type="text" id="updateCargo" name="puesto" class="w-full border rounded p-2" required>
+          </div>
+
+          <!-- Botones para cancelar y guardar -->
+          <div class="flex justify-end">
+            <button type="button" id="cancelUpdate" class="mr-2 px-4 py-2 bg-gray-500 text-white rounded">
+              Cancelar
+            </button>
+            <button type="submit" class="px-4 py-2 bg-blue-700 text-white rounded">
+              Guardar
+            </button>
+          </div>
+        </form>
       </div>
+    </div>
 
-      <div class="mb-4">
-        <label class="block text-gray-700 dark:text-gray-300">Nombre del Contacto</label>
-        <input type="text" id="updateContacto" name="contacto_nombre" class="w-full border rounded p-2" required>
+    <!-- Botón para abrir el modal de agregar nueva empresa -->
+    <div class="text-center mt-6">
+      <button id="btnAddNewCompany" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        Agregar Nueva Empresa
+      </button>
+    </div>
+
+    <!-- Modal para agregar una nueva empresa -->
+    <div id="addCompanyModal" class="fixed inset-0 flex items-center justify-center hidden bg-gray-900 bg-opacity-50">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">Agregar Nueva Empresa</h2>
+        <form id="addCompanyForm">
+          <div class="mb-4">
+            <label for="newCompanyName" class="block text-gray-700 dark:text-gray-300">Nombre de la Empresa</label>
+            <input
+              type="text"
+              id="newCompanyName"
+              name="empresa"
+              class="shadow-sm bg-gray-100 dark:bg-gray-700 border border-gray-300 text-gray-900 dark:text-white rounded-lg block w-full p-2.5"
+              required
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="newCompanyContact" class="block text-gray-700 dark:text-gray-300">Nombre del Contacto</label>
+            <input
+              type="text"
+              id="newCompanyContact"
+              name="contacto_nombre"
+              class="shadow-sm bg-gray-100 dark:bg-gray-700 border border-gray-300 text-gray-900 dark:text-white rounded-lg block w-full p-2.5"
+              required
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="newCompanyRole" class="block text-gray-700 dark:text-gray-300">Cargo del Contacto</label>
+            <input
+              type="text"
+              id="newCompanyRole"
+              name="puesto"
+              class="shadow-sm bg-gray-100 dark:bg-gray-700 border border-gray-300 text-gray-900 dark:text-white rounded-lg block w-full p-2.5"
+              required
+            />
+          </div>
+
+          <!-- Botones del formulario -->
+          <div class="flex justify-end">
+            <button type="button" id="cancelAddCompany" class="mr-2 px-4 py-2 bg-gray-500 text-white rounded">
+              Cancelar
+            </button>
+            <button type="submit" class="px-4 py-2 bg-green-700 text-white rounded">
+              Guardar
+            </button>
+          </div>
+        </form>
       </div>
+    </div>
 
-      <div class="mb-4">
-        <label class="block text-gray-700 dark:text-gray-300">Cargo del Contacto</label>
-        <input type="text" id="updateCargo" name="puesto" class="w-full border rounded p-2" required>
-      </div>
-
-      <!-- Botones para cancelar y guardar -->
-      <div class="flex justify-end">
-        <button type="button" id="cancelUpdate" class="mr-2 px-4 py-2 bg-gray-500 text-white rounded">
-          Cancelar
-        </button>
-        <button type="submit" class="px-4 py-2 bg-blue-700 text-white rounded">
-          Guardar
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-     
-
-    <!-- Incluye tu archivo Buscador.js -->
+    <!-- Incluye el archivo Buscador.js -->
     <script src="{{ asset('js/Buscador.js') }}"></script>
   </body>
 </html>
