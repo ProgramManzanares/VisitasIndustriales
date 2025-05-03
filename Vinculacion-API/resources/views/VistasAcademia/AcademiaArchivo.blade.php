@@ -19,13 +19,13 @@
         <!-- Separador -->
         <hr class="border-gray-300 dark:border-gray-600" />
 
-        <!-- Progress Bar -->
-        @include('components.progress-bar.pb-AcademiaForm1')
-
         {{-- Formulario Component --}}
-        <div class="px-4 sm:px-8 md:px-12 lg:px-16">
-          @include('components.Forms.FormsAcademia.formSolicitarVisita1')
-        </div>
-        
+        @include('components.Forms.FormsAcademia.formArchivoVisita')
+
+        {{-- Search Bar Component --}}
+        @include('components.search-bar.sbAcademia') 
+
+        {{-- Estilos para la Side Bar --}}
+        <link rel="stylesheet" href="{{ asset('css/DeleteBG_SideBar.css') }}">
     </body>
 </html>
