@@ -23,6 +23,7 @@ Route::post('/solicitudes/store', [SolicitudController::class, 'store'])->name('
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //Rutas de Paneles
 // Para maestros: usamos el middleware "auth:web" o simplemente "auth" si el guard predeterminado es "web"
@@ -88,3 +89,8 @@ Route::post('/update-empresa', function (Request $request) {
         return response()->json(['success' => false, 'message' => 'No se pudo actualizar la empresa'], 500);
     }
 });
+
+//Rutas para manejar el área de Administración de Maestros
+Route::get('/administrar-maestros', function () {
+    return view('VistasVinculacion.AdministrarMaestros');
+})->name('administrar.maestros');

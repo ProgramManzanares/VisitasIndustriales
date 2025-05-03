@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="{{ asset('css/NavBarStyles.css') }}">
     <title>Visitas Industriales ITH</title>
 
     <script>
@@ -57,7 +58,7 @@
   <body class="bg-gray-100 dark:bg-gray-900">
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
       <div
-        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+        class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto"
       >
         <a
           href="https://flowbite.com/"
@@ -75,7 +76,7 @@
           </span>
         </a>
         <div
-          class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
+          class="flex items-center space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse"
         >
           <button
             type="button"
@@ -129,18 +130,20 @@
                 >
               </li>
               <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                  >Sign out</a
-                >
-              </li>
+  <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white sign-out">
+    Sign out
+  </a>
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+  </form>
+</li>
             </ul>
           </div>
           <button
             data-collapse-toggle="navbar-user"
             type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-user"
             aria-expanded="false"
           >
@@ -173,9 +176,9 @@
     <hr class="border-gray-300 dark:border-gray-600" />
 
     <!-- Mensaje de Bienvenida -->
-    <div class="flex justify-center bg-gray-100 dark:bg-gray-900 py-8 mt-6">
+    <div class="flex justify-center py-8 mt-6 bg-gray-100 dark:bg-gray-900">
       <div class="text-center">
-        <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+        <h2 class="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white">
           ¡Bienvenido!
         </h2>
         <p class="text-lg font-medium text-gray-700 dark:text-gray-300">
@@ -192,22 +195,22 @@
         id="contenedor"
         class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 max-w-6xl w-full transition-all duration-500 hover:w-[110%] hover:bg-[rgba(255,255,255,0.7)] dark:hover:bg-[rgba(224,247,250,0.1)] hover:scale-105"
       >
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
           <!-- Tarjeta 1 -->
           <a
             href="{{ route('formulario.academia') }}"
-            class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
+            class="relative flex items-center overflow-hidden bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl group dark:border-gray-600 dark:bg-gray-700"
           >
             <!-- Efecto de rellenado -->
             <span
-              class="absolute inset-0 bg-gray-200 dark:bg-gray-600 scale-x-0 origin-left transform transition-transform duration-300 ease-in-out group-hover:scale-x-100 group-hover:duration-300 group-focus:duration-500"
+              class="absolute inset-0 transition-transform duration-300 ease-in-out origin-left transform scale-x-0 bg-gray-200 dark:bg-gray-600 group-hover:scale-x-100 group-hover:duration-300 group-focus:duration-500"
             ></span>
 
             <!-- Contenido de la tarjeta -->
             <div class="relative z-10 flex flex-row items-center w-full">
               <!-- Contenedor del Icono -->
               <div
-                class="flex justify-center items-center bg-gray-200 w-52 h-48 rounded-lg dark:bg-gray-600"
+                class="flex items-center justify-center h-48 bg-gray-200 rounded-lg w-52 dark:bg-gray-600"
               >
                 <!-- Icono -->
                 <svg
@@ -241,18 +244,18 @@
           <!-- Tarjeta 2 -->
           <a
             href="{{ route('archivo.academia') }}"
-            class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
+            class="relative flex items-center overflow-hidden bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl group dark:border-gray-600 dark:bg-gray-700"
           >
             <!-- Efecto de rellenado -->
             <span
-              class="absolute inset-0 bg-gray-200 dark:bg-gray-600 scale-x-0 origin-left transform transition-transform duration-300 ease-in-out group-hover:scale-x-100 group-hover:duration-300 group-focus:duration-500"
+              class="absolute inset-0 transition-transform duration-300 ease-in-out origin-left transform scale-x-0 bg-gray-200 dark:bg-gray-600 group-hover:scale-x-100 group-hover:duration-300 group-focus:duration-500"
             ></span>
 
             <!-- Contenido de la tarjeta -->
             <div class="relative z-10 flex flex-row items-center w-full">
               <!-- Contenedor del Icono -->
               <div
-                class="flex justify-center items-center bg-gray-200 w-64 h-48 rounded-lg dark:bg-gray-600"
+                class="flex items-center justify-center w-64 h-48 bg-gray-200 rounded-lg dark:bg-gray-600"
               >
                 <!-- Icono proporcionado -->
                 <svg
@@ -272,7 +275,7 @@
                 </svg>
               </div>
               <!-- Contenido -->
-              <div class="flex flex-col justify-center py-6 px-4">
+              <div class="flex flex-col justify-center px-4 py-6">
                 <h5
                   class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300"
                 >
@@ -288,18 +291,18 @@
           <!-- Tarjeta 3 -->
           <a
             href="{{ route('evidencia.academia') }}"
-            class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
+            class="relative flex items-center overflow-hidden bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl group dark:border-gray-600 dark:bg-gray-700"
           >
             <!-- Efecto de rellenado -->
             <span
-              class="absolute inset-0 bg-gray-200 dark:bg-gray-600 scale-x-0 origin-left transform transition-transform duration-300 ease-in-out group-hover:scale-x-100 group-hover:duration-300 group-focus:duration-500"
+              class="absolute inset-0 transition-transform duration-300 ease-in-out origin-left transform scale-x-0 bg-gray-200 dark:bg-gray-600 group-hover:scale-x-100 group-hover:duration-300 group-focus:duration-500"
             ></span>
 
             <!-- Contenido de la tarjeta -->
             <div class="relative z-10 flex flex-row items-center w-full">
               <!-- Contenedor del Icono -->
               <div
-                class="flex justify-center items-center bg-gray-200 w-64 h-48 rounded-lg dark:bg-gray-600"
+                class="flex items-center justify-center w-64 h-48 bg-gray-200 rounded-lg dark:bg-gray-600"
               >
                 <!-- Icono proporcionado -->
                 <svg
@@ -338,18 +341,18 @@
           <!-- Tarjeta 4 -->
           <a
             href="{{ route('subir.evidencia') }}"
-            class="relative flex items-center bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl overflow-hidden group dark:border-gray-600 dark:bg-gray-700"
+            class="relative flex items-center overflow-hidden bg-gray-100 border border-gray-200 rounded-lg shadow md:max-w-xl group dark:border-gray-600 dark:bg-gray-700"
           >
             <!-- Efecto de rellenado -->
             <span
-              class="absolute inset-0 bg-gray-200 dark:bg-gray-600 scale-x-0 origin-left transform transition-transform duration-300 ease-in-out group-hover:scale-x-100 group-hover:duration-300 group-focus:duration-500"
+              class="absolute inset-0 transition-transform duration-300 ease-in-out origin-left transform scale-x-0 bg-gray-200 dark:bg-gray-600 group-hover:scale-x-100 group-hover:duration-300 group-focus:duration-500"
             ></span>
 
             <!-- Contenido de la tarjeta -->
             <div class="relative z-10 flex flex-row items-center w-full">
               <!-- Contenedor del Icono -->
               <div
-                class="flex justify-center items-center bg-gray-200 w-64 h-48 rounded-lg dark:bg-gray-600"
+                class="flex items-center justify-center w-64 h-48 bg-gray-200 rounded-lg dark:bg-gray-600"
               >
                 <!-- Icono proporcionado -->
                 <svg

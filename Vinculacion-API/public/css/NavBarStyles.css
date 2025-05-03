@@ -1,0 +1,16 @@
+.sign-out {
+  color: #374151 !important; /* text-gray-700 en light mode */
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+/* Ajustar el color en dark mode */
+@media (prefers-color-scheme: dark) {
+  .sign-out {
+      color: #ffffff !important; /* Blanco en dark mode */
+  }
+}
+  /* Estado cuando el mouse está encima */
+  .sign-out:hover {
+    color: rgb(255, 88, 88) !important;
+    background-color: rgba(255, 0, 0, 0.2) !important;
+  }

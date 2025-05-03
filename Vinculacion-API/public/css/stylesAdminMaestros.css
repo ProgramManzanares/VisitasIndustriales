@@ -1,0 +1,22 @@
+/* Quita el efecto de sombreado al pasar el mouse sobre las filas */
+table.table tr:hover {
+    background-color: transparent !important;
+}
+
+/* Animación de las leyendas */
+.mensaje-validacion {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+}
+
+/* Cuando la leyenda aparece */
+.mostrar-validacion {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}

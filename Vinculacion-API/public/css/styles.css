@@ -269,6 +269,17 @@ toggle-panel {
     box-sizing: border-box; 
 }
 
+.input-rfc, .ClaveMaestro {
+    width: 80%;  
+    max-width: 300px;  
+    padding: 10px;  
+    margin: 10px 0;  
+    border: 1px solid #ccc;  
+    border-radius: 4px;  
+    box-sizing: border-box;
+}
+
+
 .imagenTEC{
     width: 250px;
     height: auto; /* Mantiene la proporción de la imagen */

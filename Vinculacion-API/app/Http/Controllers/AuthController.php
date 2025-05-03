@@ -15,6 +15,18 @@ class AuthController extends Controller
         return view('Login');
     }
 
+    // Cerrar Sesión
+    public function logout(Request $request)
+    {
+    Auth::guard('web')->logout(); // Cierra sesión solo de maestros
+
+    $request->session()->invalidate(); // Invalida la sesión
+    $request->session()->regenerateToken(); // Genera un nuevo token CSRF para seguridad
+
+    return redirect()->route('login.form'); // Redirige al login
+    }
+
+    
     // Procesar Formulario de Login
     public function login(Request $request)
     {

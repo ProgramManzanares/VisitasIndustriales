@@ -1,3 +1,8 @@
+
+<head>
+<link rel="stylesheet" href="{{ asset('css/NavBarStyles.css') }}">
+
+</head>
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
   <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
     <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -51,11 +56,14 @@
             </a>
           </li>
           <li>
-            <a href="#"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-              Sign out
-            </a>
-          </li>
+  <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-white sign-out">
+    Sign out
+  </a>
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+  </form>
+</li>
         </ul>
       </div>
 
