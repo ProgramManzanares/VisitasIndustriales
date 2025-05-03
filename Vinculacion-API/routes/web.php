@@ -94,3 +94,7 @@ Route::post('/update-empresa', function (Request $request) {
 Route::get('/administrar-maestros', function () {
     return view('VistasVinculacion.AdministrarMaestros');
 })->name('administrar.maestros');
+
+Route::get('/panel-vinculacion', function () {
+    return view('VistasVinculacion.panelVinculacion');
+})->name('panel.vinculacion');

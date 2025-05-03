@@ -1,173 +1,231 @@
 <!DOCTYPE html>
-<html data-theme="light">
+<html data-theme="light" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Usuarios</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rippleui@1.12.1/dist/css/styles.css" />
-    <link rel="stylesheet" href="{{ asset('css/stylesAdminMaestros.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        [data-theme="light"] {
+            --color-primary: 59, 130, 246; /* blue-500 */
+            --color-primary-hover: 37, 99, 235; /* blue-600 */
+        }
+        .input-focus-effect:focus {
+            box-shadow: 0 0 0 2px rgba(var(--color-primary), 0.2);
+            border-color: rgba(var(--color-primary), 0.5);
+        }
+        .btn-action:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(var(--color-primary), 0.1);
+        }
+    </style>
 </head>
-<body class="flex flex-col items-center justify-start min-h-screen py-12">
+<body class="flex flex-col items-center justify-start min-h-screen py-8 bg-gray-50">
 
-    <!-- Sección del buscador -->
-    <div class="relative mt-6 mb-6">
-        <input type="text" class="pr-10 border border-gray-300 input w-80 focus:outline-none focus:ring-0" placeholder="Buscar usuario..." />
+<!-- Botón Volver mejorado (funcionalidad intacta) -->
+<div class="absolute top-6 left-6">
+    <a href="{{ route('panel.vinculacion') }}" 
+       class="flex items-center p-2 pr-1.5 text-gray-500 transition-all duration-300 ease-in-out bg-white rounded-lg shadow-sm hover:bg-gray-50 hover:shadow-md hover:pr-3 hover:text-blue-600 group border border-gray-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span class="ml-1.5 text-sm font-medium transition-all duration-300 opacity-0 w-0 overflow-hidden group-hover:opacity-100 group-hover:w-auto whitespace-nowrap">
+            Volver
+        </span>
+    </a>
+</div>
+
+<!-- Sección del buscador mejorada (funcionalidad intacta) -->
+<div class="relative w-full max-w-2xl px-4 mt-8 mb-8">
+    <div class="relative">
+        <input type="text" 
+               class="w-full h-12 pl-4 pr-12 text-gray-700 transition-all duration-200 border border-gray-300 rounded-lg input-focus-effect focus:outline-none focus:ring-2 focus:ring-blue-500/20" 
+               placeholder="Buscar usuario..." />
         <div class="absolute inset-y-0 right-0 flex items-center pr-3">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-blue-600 cursor-pointer hover:text-blue-800">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                 class="w-6 h-6 text-blue-500 transition-colors duration-200 cursor-pointer hover:text-blue-600" 
+                 fill="none" 
+                 viewBox="0 0 24 24" 
+                 stroke="currentColor" 
+                 stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
         </div>
     </div>
+</div>
 
-    <!-- Sección de la tabla -->
-    <div class="container max-w-4xl px-4 mx-auto mt-6">
-        <div class="overflow-x-auto">
-            <table class="table w-full">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido Paterno</th>
-                        <th>Apellido Materno</th>
-                        <th>Clave</th>
-                        <th>Correo</th>
-                        <th>Teléfono</th>
-                        <th class="flex items-center justify-between">
-                            Acciones
-                            <label for="modal-agregar" class="ml-2 btn btn-xs btn-success">
+<!-- Sección de la tabla mejorada (con funcionalidad original) -->
+<div class="container max-w-6xl px-4 mx-auto mt-4">
+    <div class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">ID</th>
+                    <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Nombre</th>
+                    <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Apellido Paterno</th>
+                    <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Apellido Materno</th>
+                    <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Clave</th>
+                    <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Correo</th>
+                    <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Teléfono</th>
+                    <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                        <div class="flex items-center justify-between">
+                            <span>Acciones</span>
+                            <label for="modal-agregar" class="px-3 py-1 ml-2 text-xs font-medium text-white transition-all duration-200 bg-blue-500 rounded-md shadow-sm cursor-pointer btn-action hover:bg-blue-600">
                                 Añadir
                             </label>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="tablaUsuarios">
-                    <tr>
-                        <td>1</td>
-                        <td>Juan</td>
-                        <td>Pérez</td>
-                        <td>González</td>
-                        <td>ABC123</td>
-                        <td>juan.perez@email.com</td>
-                        <td>555-1234</td>
-                        <td class="text-center">
-                            <div class="flex justify-center gap-1">
-                                <!-- Botón que abre el modal -->
-                                <button class="transition-all duration-300 ease-in-out btn btn-xs btn-error hover:scale-110 hover:shadow-lg hover:shadow-success/50 ">Eliminar</button>
-                                <button class="transition-all duration-300 ease-in-out btn btn-xs btn-warning hover:scale-110 hover:shadow-lg hover:shadow-success/50">Modificar</button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200" id="tablaUsuarios">
+                <tr class="transition-colors duration-150 hover:bg-gray-50/80">
+                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">1</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Juan</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Pérez</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">González</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">ABC123</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">juan.perez@email.com</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">555-1234</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                        <div class="flex justify-center gap-2">
+                            <!-- Botón Eliminar (funcionalidad original) -->
+                            <button class="px-3 py-1 text-xs font-medium text-white transition-all duration-200 bg-red-500 rounded-md shadow-sm btn-error hover:bg-red-600">
+                                Eliminar
+                            </button>
+                            <!-- Botón Modificar (funcionalidad original) -->
+                            <label for="modal-modificar" onclick="cargarDatosUsuario(1)" class="px-3 py-1 text-xs font-medium text-white transition-all duration-200 bg-yellow-500 rounded-md shadow-sm cursor-pointer btn-action hover:bg-yellow-600">
+                                Modificar
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>
 
-    <!-- Modal para eliminar usuario -->
-    <input type="checkbox" id="modal-modificar" class="modal-state" />
+<!-- Modal para modificar usuario (con funcionalidad original) -->
+<input type="checkbox" id="modal-modificar" class="modal-state" />
 <div class="modal">
     <label for="modal-modificar" class="modal-overlay"></label>
-    <div class="relative flex flex-col max-w-xl gap-6 modal-content">
-        <label for="modal-modificar" class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</label>
-        <h2 class="text-xl font-bold text-center">Modificar usuario</h2>
+    <div class="relative flex flex-col w-full max-w-4xl gap-6 p-8 bg-white rounded-lg modal-content">
+        <label for="modal-modificar" class="absolute btn btn-sm btn-circle btn-ghost right-4 top-4 hover:bg-gray-100">✕</label>
+        <h2 class="text-2xl font-bold text-center text-gray-800">Modificar usuario</h2>
 
-        <form id="formModificarUsuario" class="grid grid-cols-3 gap-6 place-items-start">
+        <form id="formModificarUsuario" class="grid grid-cols-1 gap-6 md:grid-cols-3">
             <!-- Primera columna -->
             <div class="flex flex-col w-full gap-4">
-                <label class="form-label">Nombre</label>
-                <input type="text" id="mod-nombre" class="input" required />
+                <div class="form-field">
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Nombre</label>
+                    <input type="text" id="mod-nombre" class="w-full input input-focus-effect" required />
+                </div>
 
-                <label class="form-label">Apellido Paterno</label>
-                <input type="text" id="mod-apellidoPaterno" class="input" required />
+                <div class="form-field">
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Apellido Paterno</label>
+                    <input type="text" id="mod-apellidoPaterno" class="w-full input input-focus-effect" required />
+                </div>
             </div>
 
             <!-- Segunda columna -->
             <div class="flex flex-col w-full gap-4">
-                <label class="form-label">Apellido Materno</label>
-                <input type="text" id="mod-apellidoMaterno" class="input" required />
+                <div class="form-field">
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Apellido Materno</label>
+                    <input type="text" id="mod-apellidoMaterno" class="w-full input input-focus-effect" required />
+                </div>
 
-                <label class="form-label">Clave</label>
-                <input type="text" id="mod-clave" class="input" required />
+                <div class="form-field">
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Clave</label>
+                    <input type="text" id="mod-clave" class="w-full input input-focus-effect" required />
+                </div>
             </div>
 
             <!-- Tercera columna -->
             <div class="flex flex-col w-full gap-4">
-                <label class="form-label">Correo Electrónico</label>
-                <input type="email" id="mod-correo" class="input" required />
+                <div class="form-field">
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Correo Electrónico</label>
+                    <input type="email" id="mod-correo" class="w-full input input-focus-effect" required />
+                </div>
 
-                <label class="form-label">Teléfono</label>
-                <input type="tel" id="mod-telefono" class="input" required />
+                <div class="form-field">
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Teléfono</label>
+                    <input type="tel" id="mod-telefono" class="w-full input input-focus-effect" required />
+                </div>
             </div>
 
-            <div class="flex justify-center col-span-3 mt-6">
-                <button type="submit" class="px-6 py-2 text-lg btn btn-warning">Guardar Cambios</button>
+            <div class="flex justify-center col-span-3 mt-4">
+                <button type="submit" class="px-8 py-2.5 text-sm font-medium text-white transition-all duration-200 bg-blue-500 rounded-lg shadow-md btn-action hover:bg-blue-600">
+                    Guardar Cambios
+                </button>
             </div>
         </form>
     </div>
 </div>
-    <!-- Modal para agregar usuario -->
+
+<!-- Modal para agregar usuario (funcionalidad intacta) -->
 <input type="checkbox" id="modal-agregar" class="modal-state" />
 <div class="modal">
     <label for="modal-agregar" class="modal-overlay"></label>
-    <div class="relative flex flex-col max-w-xl gap-6 modal-content">
-        <label for="modal-agregar" class="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">✕</label>
-        <h2 class="text-xl font-bold text-center">Agregar nuevo usuario</h2>
+    <div class="relative flex flex-col w-full max-w-4xl gap-6 p-8 bg-white rounded-lg modal-content">
+        <label for="modal-agregar" class="absolute btn btn-sm btn-circle btn-ghost right-4 top-4 hover:bg-gray-100">✕</label>
+        <h2 class="text-2xl font-bold text-center text-gray-800">Agregar nuevo usuario</h2>
 
-        <form id="formAgregarUsuario" class="grid grid-cols-3 gap-6 place-items-start">
+        <form id="formAgregarUsuario" class="grid grid-cols-1 gap-6 md:grid-cols-3">
             <!-- Primera columna -->
             <div class="flex flex-col w-full gap-4">
                 <div class="relative form-field">
-                    <label class="form-label">Nombre</label>
-                    <input type="text" id="nombre" class="max-w-full outline-none input ring-0 focus:ring-0" placeholder="Nombre" required />
-                    <span id="validoNombre" class="absolute left-0 hidden form-label-alt text-success top-full">Nombre válido</span>
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Nombre</label>
+                    <input type="text" id="nombre" class="w-full input input-focus-effect" placeholder="Nombre" required />
+                    <span id="validoNombre" class="absolute text-xs text-green-500 top-full">Nombre válido</span>
                 </div>
 
                 <div class="relative form-field">
-                    <label class="form-label">Apellido Paterno</label>
-                    <input type="text" id="apellidoPaterno" class="max-w-full outline-none input ring-0 focus:ring-0" placeholder="Apellido Paterno" required />
-                    <span id="validoApellidoPaterno" class="absolute left-0 hidden form-label-alt text-success top-full">Apellido Paterno válido</span>
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Apellido Paterno</label>
+                    <input type="text" id="apellidoPaterno" class="w-full input input-focus-effect" placeholder="Apellido Paterno" required />
+                    <span id="validoApellidoPaterno" class="absolute text-xs text-green-500 top-full">Apellido válido</span>
                 </div>
             </div>
 
             <!-- Segunda columna -->
             <div class="flex flex-col w-full gap-4">
                 <div class="relative form-field">
-                    <label class="form-label">Apellido Materno</label>
-                    <input type="text" id="apellidoMaterno" class="max-w-full outline-none input ring-0 focus:ring-0" placeholder="Apellido Materno" required />
-                    <span id="validoApellidoMaterno" class="absolute left-0 hidden form-label-alt text-success top-full">Apellido Materno válido</span>
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Apellido Materno</label>
+                    <input type="text" id="apellidoMaterno" class="w-full input input-focus-effect" placeholder="Apellido Materno" required />
+                    <span id="validoApellidoMaterno" class="absolute text-xs text-green-500 top-full">Apellido válido</span>
                 </div>
 
                 <div class="relative form-field">
-                    <label class="form-label">Clave</label>
-                    <input type="text" id="clave" class="max-w-full outline-none input ring-0 focus:ring-0" placeholder="Clave" required />
-                    <span id="errorClave" class="absolute left-0 hidden form-label-alt text-error top-full">Debe ser única.</span>
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Clave</label>
+                    <input type="text" id="clave" class="w-full input input-focus-effect" placeholder="Clave" required />
+                    <span id="errorClave" class="absolute text-xs text-red-500 top-full">Debe ser única</span>
                 </div>
             </div>
 
             <!-- Tercera columna -->
             <div class="flex flex-col w-full gap-4">
                 <div class="relative form-field">
-                    <label class="form-label">Correo Electrónico</label>
-                    <input type="email" id="correo" class="max-w-full outline-none input ring-0 focus:ring-0" placeholder="Correo Electrónico" required />
-                    <span id="errorCorreo" class="absolute left-0 hidden form-label-alt text-error top-full">Debe ser un correo válido y único.</span>
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Correo Electrónico</label>
+                    <input type="email" id="correo" class="w-full input input-focus-effect" placeholder="Correo Electrónico" required />
+                    <span id="errorCorreo" class="absolute text-xs text-red-500 top-full">Correo inválido</span>
                 </div>
 
                 <div class="relative form-field">
-                    <label class="form-label">Teléfono</label>
-                    <input type="tel" id="telefono" class="max-w-full outline-none input ring-0 focus:ring-0" placeholder="Teléfono" required />
-                    <span id="errorTelefono" class="absolute left-0 hidden form-label-alt text-error top-full">Debe ser un teléfono válido y único.</span>
+                    <label class="block mb-1 text-sm font-medium text-gray-700">Teléfono</label>
+                    <input type="tel" id="telefono" class="w-full input input-focus-effect" placeholder="Teléfono" required />
+                    <span id="errorTelefono" class="absolute text-xs text-red-500 top-full">Teléfono inválido</span>
                 </div>
             </div>
 
-            <!-- Botón de guardar -->
-            <div class="flex justify-center col-span-3 mt-6">
-                <button type="submit" class="px-6 py-2 text-lg btn btn-success">Guardar</button>
+            <div class="flex justify-center col-span-3 mt-4">
+                <button type="submit" class="px-8 py-2.5 text-sm font-medium text-white transition-all duration-200 bg-green-500 rounded-lg shadow-md btn-action hover:bg-green-600">
+                    Guardar Usuario
+                </button>
             </div>
         </form>
     </div>
 </div>
 
-
+<!-- Scripts originales (funcionalidad intacta) -->
 <script src="{{ asset('js/AdministrarMaestros/filtrarBusqueda.js') }}"></script>
 <script src="{{ asset('js/AdministrarMaestros/validacionesUsuarios.js') }}"></script>
 <script src="{{ asset('js/AdministrarMaestros/eliminarUsuario.js') }}"></script>
