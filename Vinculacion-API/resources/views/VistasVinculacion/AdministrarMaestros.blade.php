@@ -198,12 +198,12 @@
 </div>
 
 <!-- Scripts originales (funcionalidad intacta) -->
-<script src="{{ asset('js/AdministrarMaestros/filtrarBusqueda.js') }}"></script>
 <script src="{{ asset('js/AdministrarMaestros/validacionesUsuarios.js') }}"></script>
 <script src="{{ asset('js/AdministrarMaestros/modificarUsuario.js') }}"></script>
 <script src="{{ asset('js/AdministrarMaestros/agregarUsuario.js') }}"></script>
 <script src="{{ asset('js/AdministrarMaestros/apiUsuarios.js') }}"></script>
 <script src="{{ asset('js/AdministrarMaestros/eliminarUsuario.js') }}"></script>
-<!-- hola quitame -->
+<script src="{{ asset('js/AdministrarMaestros/filtrarBusqueda.js') }}"></script>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const tabla = document.getElementById('tablaUsuarios');
-  
+
     fetch('https://localhost:7176/api/maestro')
         .then(response => response.json())
         .then(data => {
@@ -13,11 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.nombre}</td>
                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.apellidoPaterno}</td>
                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.apellidoMaterno}</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.clave}</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.correo}</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.claveMaestro}</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.correoElectronico}</td>
                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.telefono}</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap space-x-2">
                         <button onclick="eliminarMaestro(${maestro.id})" class="px-2 py-1 text-xs text-white bg-red-500 rounded hover:bg-red-600">Eliminar</button>
+                        <label for="modal-modificar" onclick="cargarDatosUsuario(${maestro.id})" class="px-2 py-1 text-xs font-medium text-white bg-yellow-500 rounded hover:bg-yellow-600 cursor-pointer">Modificar</label>
                     </td>
                 `;
                 tabla.appendChild(fila);
@@ -27,6 +28,4 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error al cargar los maestros:', error);
             tabla.innerHTML = '<tr><td colspan="8" class="py-4 text-center text-red-500">Error al cargar datos</td></tr>';
         });
-  });
-
-  //hola quitame
+});

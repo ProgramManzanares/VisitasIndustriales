@@ -16,4 +16,3 @@ function eliminarMaestro(id) {
   .catch(err => console.error('Error al eliminar:', err));
 }
 
-//hola quitame

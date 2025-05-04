@@ -1,41 +1,41 @@
-document.getElementById('formAgregarUsuario').addEventListener('submit', async (e) => {
-    e.preventDefault();
+// agregarUsuario.js
+document.addEventListener('DOMContentLoaded', function () {
+    const formAgregar = document.getElementById('formAgregarUsuario');
 
-    const nuevoUsuario = {
-        nombre: document.getElementById('nombre').value,
-        apellidoPaterno: document.getElementById('apellidoPaterno').value,
-        apellidoMaterno: document.getElementById('apellidoMaterno').value,
-        clave: document.getElementById('clave').value,
-        correo: document.getElementById('correo').value,
-        telefono: document.getElementById('telefono').value
-    };
+    formAgregar.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-    try {
-        const response = await fetch('/api/maestros', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(nuevoUsuario)
-        });
+        const nuevoUsuario = {
+            nombre: document.getElementById('nombre').value.trim(),
+            apellidoPaterno: document.getElementById('apellidoPaterno').value.trim(),
+            apellidoMaterno: document.getElementById('apellidoMaterno').value.trim(),
+            claveMaestro: document.getElementById('clave').value.trim(),
+            correoElectronico: document.getElementById('correo').value.trim(),
+            telefono: document.getElementById('telefono').value.trim()
+        };
 
-        if (!response.ok) {
-            const error = await response.text();
-            console.error('Error al crear usuario:', error);
-            alert('Error al crear usuario.');
-            return;
+        try {
+            const res = await fetch('https://localhost:7176/api/Maestro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(nuevoUsuario)
+            });
+
+            if (!res.ok) {
+                const errorData = await res.json();
+                console.error('Error de validación:', errorData);
+                alert('Error al agregar el usuario. Verifica los campos obligatorios.');
+                return;
+            }
+
+            // Cerrar el modal y recargar la página o tabla
+            document.getElementById('modal-agregar').checked = false;
+            location.reload();
+        } catch (error) {
+            console.error('Error al agregar usuario:', error);
+            alert('Error de conexión al agregar usuario.');
         }
-
-        // Usuario creado con éxito
-        const nuevo = await response.json();
-        console.log('Usuario creado:', nuevo);
-        alert('Usuario agregado correctamente.');
-
-        // Recargar la página para reflejar los cambios
-        location.reload();
-
-    } catch (error) {
-        console.error('Error en la petición:', error);
-        alert('Hubo un error al comunicarse con el servidor.');
-    }
+    });
 });
