@@ -27,6 +27,10 @@ return [
     'resend' => [
         'key' => env('RESEND_KEY'),
     ],
+    
+    'api_maestros' => [
+    'base_uri' => env('API_MAESTROS_URL', 'http://localhost:7176/api/'),
+],
 
     'slack' => [
         'notifications' => [

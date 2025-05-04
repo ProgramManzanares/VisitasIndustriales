@@ -6,6 +6,7 @@ use App\Http\Controllers\VinculacionController;
 use App\Http\Controllers\AcademiaController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SolicitudController;
+use App\Http\Controllers\MaestroController;
 
 
 
@@ -24,6 +25,7 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/api/maestros', [MaestroController::class, 'index']);
 
 //Rutas de Paneles
 // Para maestros: usamos el middleware "auth:web" o simplemente "auth" si el guard predeterminado es "web"

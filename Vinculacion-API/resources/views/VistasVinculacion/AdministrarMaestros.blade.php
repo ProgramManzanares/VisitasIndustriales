@@ -43,7 +43,7 @@
 </div>
 
 <!-- Sección de la tabla mejorada (con funcionalidad original) -->
-<div class="container max-w-6xl px-4 mx-auto mt-4">
+<div class="container max-w-6xl px-4 mx-auto mt-4" id="tablaMaestros">
     <div class="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-xl">
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
@@ -67,23 +67,8 @@
             </thead>
             <tbody class="bg-white divide-y divide-gray-200" id="tablaUsuarios">
                 <tr class="transition-colors duration-150 hover:bg-gray-50/80">
-                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">1</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Juan</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Pérez</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">González</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">ABC123</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">juan.perez@email.com</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">555-1234</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
                         <div class="flex justify-center gap-2">
-                            <!-- Botón Eliminar (funcionalidad original) -->
-                            <button class="px-3 py-1 text-xs font-medium text-white transition-all duration-200 bg-red-500 rounded-md shadow-sm btn-error hover:bg-red-600">
-                                Eliminar
-                            </button>
-                            <!-- Botón Modificar (funcionalidad original) -->
-                            <label for="modal-modificar" onclick="cargarDatosUsuario(1)" class="px-3 py-1 text-xs font-medium text-white transition-all duration-200 bg-yellow-500 rounded-md shadow-sm cursor-pointer btn-action hover:bg-yellow-600">
-                                Modificar
-                            </label>
+
                         </div>
                     </td>
                 </tr>
@@ -105,12 +90,12 @@
             <div class="flex flex-col w-full gap-4">
                 <div class="form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Nombre</label>
-                    <input type="text" id="mod-nombre" class="w-full input input-focus-effect" required />
+                    <input type="text" id="mod-nombre" name="nombre" class="w-full input input-focus-effect" required />
                 </div>
 
                 <div class="form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Apellido Paterno</label>
-                    <input type="text" id="mod-apellidoPaterno" class="w-full input input-focus-effect" required />
+                    <input type="text" id="mod-apellidoPaterno" name="apellidoPaterno" class="w-full input input-focus-effect" required />
                 </div>
             </div>
 
@@ -118,12 +103,12 @@
             <div class="flex flex-col w-full gap-4">
                 <div class="form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Apellido Materno</label>
-                    <input type="text" id="mod-apellidoMaterno" class="w-full input input-focus-effect" required />
+                    <input type="text" id="mod-apellidoMaterno" name="apellidoMaterno"class="w-full input input-focus-effect" required />
                 </div>
 
                 <div class="form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Clave</label>
-                    <input type="text" id="mod-clave" class="w-full input input-focus-effect" required />
+                    <input type="text" id="mod-clave" name="clave" class="w-full input input-focus-effect" required />
                 </div>
             </div>
 
@@ -131,12 +116,12 @@
             <div class="flex flex-col w-full gap-4">
                 <div class="form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Correo Electrónico</label>
-                    <input type="email" id="mod-correo" class="w-full input input-focus-effect" required />
+                    <input type="email" id="mod-correo" name="correo" class="w-full input input-focus-effect" required />
                 </div>
 
                 <div class="form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Teléfono</label>
-                    <input type="tel" id="mod-telefono" class="w-full input input-focus-effect" required />
+                    <input type="tel" id="mod-telefono" name="telefono" class="w-full input input-focus-effect" required />
                 </div>
             </div>
 
@@ -162,13 +147,13 @@
             <div class="flex flex-col w-full gap-4">
                 <div class="relative form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Nombre</label>
-                    <input type="text" id="nombre" class="w-full input input-focus-effect" placeholder="Nombre" required />
+                    <input type="text" id="nombre" name="nombre" class="w-full input input-focus-effect" placeholder="Nombre" required />
                     <span id="validoNombre" class="absolute text-xs text-green-500 top-full">Nombre válido</span>
                 </div>
 
                 <div class="relative form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Apellido Paterno</label>
-                    <input type="text" id="apellidoPaterno" class="w-full input input-focus-effect" placeholder="Apellido Paterno" required />
+                    <input type="text" id="apellidoPaterno" name="apellidoPaterno" class="w-full input input-focus-effect" placeholder="Apellido Paterno" required />
                     <span id="validoApellidoPaterno" class="absolute text-xs text-green-500 top-full">Apellido válido</span>
                 </div>
             </div>
@@ -177,13 +162,13 @@
             <div class="flex flex-col w-full gap-4">
                 <div class="relative form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Apellido Materno</label>
-                    <input type="text" id="apellidoMaterno" class="w-full input input-focus-effect" placeholder="Apellido Materno" required />
+                    <input type="text" id="apellidoMaterno" name="apellidoMaterno" class="w-full input input-focus-effect" placeholder="Apellido Materno" required />
                     <span id="validoApellidoMaterno" class="absolute text-xs text-green-500 top-full">Apellido válido</span>
                 </div>
 
                 <div class="relative form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Clave</label>
-                    <input type="text" id="clave" class="w-full input input-focus-effect" placeholder="Clave" required />
+                    <input type="text" id="clave" name="clave"  class="w-full input input-focus-effect" placeholder="Clave" required />
                     <span id="errorClave" class="absolute text-xs text-red-500 top-full">Debe ser única</span>
                 </div>
             </div>
@@ -192,13 +177,13 @@
             <div class="flex flex-col w-full gap-4">
                 <div class="relative form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Correo Electrónico</label>
-                    <input type="email" id="correo" class="w-full input input-focus-effect" placeholder="Correo Electrónico" required />
+                    <input type="email" id="correo" name="correo" class="w-full input input-focus-effect" placeholder="Correo Electrónico" required />
                     <span id="errorCorreo" class="absolute text-xs text-red-500 top-full">Correo inválido</span>
                 </div>
 
                 <div class="relative form-field">
                     <label class="block mb-1 text-sm font-medium text-gray-700">Teléfono</label>
-                    <input type="tel" id="telefono" class="w-full input input-focus-effect" placeholder="Teléfono" required />
+                    <input type="tel" id="telefono" name="telefono" class="w-full input input-focus-effect" placeholder="Teléfono" required />
                     <span id="errorTelefono" class="absolute text-xs text-red-500 top-full">Teléfono inválido</span>
                 </div>
             </div>
@@ -217,6 +202,58 @@
 <script src="{{ asset('js/AdministrarMaestros/validacionesUsuarios.js') }}"></script>
 <script src="{{ asset('js/AdministrarMaestros/eliminarUsuario.js') }}"></script>
 <script src="{{ asset('js/AdministrarMaestros/modificarUsuario.js') }}"></script>
+<script src="{{ asset('js/AdministrarMaestros/apiUsuarios.js') }}"></script>
+<script src="{{ asset('js/AdministrarMaestros/agregarUsuario.js') }}"></script>
+
+<!-- CHATGPT -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const tabla = document.getElementById('tablaUsuarios');
+
+    fetch('https://localhost:7176/api/maestro')
+        .then(response => response.json())
+        .then(data => {
+            tabla.innerHTML = '';
+            data.forEach(maestro => {
+                const fila = document.createElement('tr');
+                fila.classList.add('transition-colors', 'duration-150', 'hover:bg-gray-50/80');
+                fila.innerHTML = `
+                    <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">${maestro.id}</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.nombre}</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.apellidoPaterno}</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.apellidoMaterno}</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.clave}</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.correo}</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${maestro.telefono}</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                        <button onclick="eliminarMaestro(${maestro.id})" class="px-2 py-1 text-xs text-white bg-red-500 rounded hover:bg-red-600">Eliminar</button>
+                    </td>
+                `;
+                tabla.appendChild(fila);
+            });
+        })
+        .catch(error => {
+            console.error('Error al cargar los maestros:', error);
+            tabla.innerHTML = '<tr><td colspan="8" class="text-center text-red-500 py-4">Error al cargar datos</td></tr>';
+        });
+});
+
+function eliminarMaestro(id) {
+    if (!confirm('¿Estás seguro de que quieres eliminar este maestro?')) return;
+
+    fetch(`https://localhost:7176/api/Maestro/${id}`, {
+        method: 'DELETE'
+    })
+    .then(res => {
+        if (res.ok) {
+            location.reload();
+        } else {
+            alert('Error al eliminar');
+        }
+    })
+    .catch(err => console.error('Error al eliminar:', err));
+}
+</script>
 
 </body>
 </html>
