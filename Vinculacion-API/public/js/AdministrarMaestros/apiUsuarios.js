@@ -28,3 +28,5 @@ document.addEventListener('DOMContentLoaded', function () {
             tabla.innerHTML = '<tr><td colspan="8" class="py-4 text-center text-red-500">Error al cargar datos</td></tr>';
         });
   });
+
+  //hola quitame

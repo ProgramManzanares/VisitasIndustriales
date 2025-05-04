@@ -204,6 +204,6 @@
 <script src="{{ asset('js/AdministrarMaestros/agregarUsuario.js') }}"></script>
 <script src="{{ asset('js/AdministrarMaestros/apiUsuarios.js') }}"></script>
 <script src="{{ asset('js/AdministrarMaestros/eliminarUsuario.js') }}"></script>
-
+<!-- hola quitame -->
 </body>
 </html>
